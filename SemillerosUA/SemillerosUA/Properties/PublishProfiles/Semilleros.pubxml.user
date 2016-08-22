@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword />
+    <_PublishTargetUrl>ftp://172.16.31.150/semilleros</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="ApplicationInsights.config">
+      <publishTime>06/21/2016 08:51:45</publishTime>
+    </File>
+    <File Include="bin/ApplicationInsights.config">
+      <publishTime>06/21/2016 08:51:45</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
+      <publishTime>08/06/2015 12:16:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.DependencyCollector.dll">
+      <publishTime>10/29/2015 20:45:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
+      <publishTime>10/29/2015 20:58:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
+      <publishTime>10/29/2015 20:49:14</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Web.dll">
+      <publishTime>10/29/2015 20:49:14</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.WindowsServer.dll">
+      <publishTime>10/29/2015 20:49:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.dll">
+      <publishTime>10/28/2015 17:10:06</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>06/15/2015 02:06:24</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.dll">
+      <publishTime>10/02/2015 17:05:26</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>08/03/2014 20:33:56</publishTime>
+    </File>
+    <File Include="bin/Oracle.ManagedDataAccess.dll">
+      <publishTime>09/26/2015 10:19:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/SemillerosUA.dll">
+      <publishTime>08/12/2016 15:46:45</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>01/28/2015 04:02:42</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>01/28/2015 04:02:54</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>01/28/2015 04:03:46</publishTime>
+    </File>
+    <File Include="controller.js">
+      <publishTime>07/31/2016 18:54:44</publishTime>
+    </File>
+    <File Include="controller1.js">
+      <publishTime>07/31/2016 18:55:01</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>06/21/2016 08:51:19</publishTime>
+    </File>
+    <File Include="Index.aspx">
+      <publishTime>07/29/2016 22:49:47</publishTime>
+    </File>
+    <File Include="json.json">
+      <publishTime>07/31/2016 18:54:14</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>06/21/2016 08:51:46</publishTime>
+    </File>
+    <File Include="public/content/.gitignore">
+      <publishTime>06/21/2016 09:00:26</publishTime>
+    </File>
+    <File Include="public/content/.jshintrc">
+      <publishTime>06/21/2016 09:00:26</publishTime>
+    </File>
+    <File Include="public/content/bower.json">
+      <publishTime>06/21/2016 09:00:26</publishTime>
+    </File>
+    <File Include="public/content/changelog">
+      <publishTime>06/21/2016 09:00:26</publishTime>
+    </File>
+    <File Include="public/content/composer.json">
+      <publishTime>06/21/2016 09:00:26</publishTime>
+    </File>
+    <File Include="public/content/Gruntfile.js">
+      <publishTime>06/21/2016 09:00:26</publishTime>
+    </File>
+    <File Include="public/content/index.html">
+      <publishTime>06/21/2016 09:00:26</publishTime>
+    </File>
+    <File Include="public/content/index2.html">
+      <publishTime>06/21/2016 09:00:26</publishTime>
+    </File>
+    <File Include="public/content/LICENSE">
+      <publishTime>06/21/2016 09:00:26</publishTime>
+    </File>
+    <File Include="public/content/package.json">
+      <publishTime>06/21/2016 09:00:26</publishTime>
+    </File>
+    <File Include="public/content/README.md">
+      <publishTime>06/21/2016 09:00:26</publishTime>
+    </File>
+    <File Include="public/content/starter.html">
+      <publishTime>06/21/2016 09:00:26</publishTime>
+    </File>
+    <File Include="public/images/fondo/-text %281%29 - copia.png">
+      <publishTime>07/29/2016 23:48:39</publishTime>
+    </File>
+    <File Include="public/images/fondo/1.jpg">
+      <publishTime>07/29/2016 23:48:35</publishTime>
+    </File>
+    <File Include="public/images/fondo/2.jpg">
+      <publishTime>07/29/2016 23:48:35</publishTime>
+    </File>
+    <File Include="public/images/fondo/2d.png">
+      <publishTime>07/29/2016 23:48:35</publishTime>
+    </File>
+    <File Include="public/images/fondo/2F.jpg">
+      <publishTime>07/29/2016 23:48:35</publishTime>
+    </File>
+    <File Include="public/images/fondo/3.jpg">
+      <publishTime>07/29/2016 23:48:35</publishTime>
+    </File>
+    <File Include="public/images/fondo/4.jpg">
+      <publishTime>07/29/2016 23:48:35</publishTime>
+    </File>
+    <File Include="public/images/fondo/5.jpg">
+      <publishTime>07/29/2016 23:48:35</publishTime>
+    </File>
+    <File Include="public/images/fondo/6.jpg">
+      <publishTime>07/29/2016 23:48:35</publishTime>
+    </File>
+    <File Include="public/images/fondo/ACM.png">
+      <publishTime>07/29/2016 23:48:35</publishTime>
+    </File>
+    <File Include="public/images/fondo/CCPL.jpg">
+      <publishTime>07/29/2016 23:48:35</publishTime>
+    </File>
+    <File Include="public/images/fondo/clasificatoria.jpg">
+      <publishTime>07/29/2016 23:48:35</publishTime>
+    </File>
+    <File Include="public/images/fondo/codeforces.png">
+      <publishTime>07/29/2016 23:48:35</publishTime>
+    </File>
+    <File Include="public/images/fondo/d3.png">
+      <publishTime>07/29/2016 23:48:35</publishTime>
+    </File>
+    <File Include="public/images/fondo/giecom.png">
+      <publishTime>07/28/2016 12:36:48</publishTime>
+    </File>
+    <File Include="public/images/fondo/i.jpg">
+      <publishTime>07/29/2016 23:48:35</publishTime>
+    </File>
+    <File Include="public/images/fondo/i2.jpg">
+      <publishTime>07/29/2016 23:48:35</publishTime>
+    </File>
+    <File Include="public/images/fondo/Imagen1.png">
+      <publishTime>07/29/2016 23:48:35</publishTime>
+    </File>
+    <File Include="public/images/fondo/Inscripciones.png">
+      <publishTime>07/29/2016 23:48:35</publishTime>
+    </File>
+    <File Include="public/images/fondo/libros.jpg">
+      <publishTime>07/29/2016 23:48:35</publishTime>
+    </File>
+    <File Include="public/images/fondo/logo.png">
+      <publishTime>07/29/2016 23:48:35</publishTime>
+    </File>
+    <File Include="public/images/fondo/logo2.png">
+      <publishTime>07/10/2016 19:57:40</publishTime>
+    </File>
+    <File Include="public/images/fondo/logosp.png">
+      <publishTime>07/29/2016 16:59:09</publishTime>
+    </File>
+    <File Include="public/images/fondo/m2.jpg">
+      <publishTime>07/29/2016 23:48:38</publishTime>
+    </File>
+    <File Include="public/images/fondo/m2.png">
+      <publishTime>07/29/2016 23:48:38</publishTime>
+    </File>
+    <File Include="public/images/fondo/m2015.png">
+      <publishTime>07/29/2016 23:48:38</publishTime>
+    </File>
+    <File Include="public/images/fondo/m3.jpg">
+      <publishTime>07/29/2016 23:48:38</publishTime>
+    </File>
+    <File Include="public/images/fondo/m3.png">
+      <publishTime>07/29/2016 23:48:38</publishTime>
+    </File>
+    <File Include="public/images/fondo/m4.jpg">
+      <publishTime>07/29/2016 23:48:38</publishTime>
+    </File>
+    <File Include="public/images/fondo/m4.png">
+      <publishTime>07/29/2016 23:48:38</publishTime>
+    </File>
+    <File Include="public/images/fondo/m5.jpg">
+      <publishTime>07/29/2016 23:48:38</publishTime>
+    </File>
+    <File Include="public/images/fondo/m6.png">
+      <publishTime>07/29/2016 23:48:38</publishTime>
+    </File>
+    <File Include="public/images/fondo/maraton.png">
+      <publishTime>07/29/2016 23:48:38</publishTime>
+    </File>
+    <File Include="public/images/fondo/New.png">
+      <publishTime>07/29/2016 23:48:38</publishTime>
+    </File>
+    <File Include="public/images/fondo/p11.jpg">
+      <publishTime>07/29/2016 19:24:40</publishTime>
+    </File>
+    <File Include="public/images/fondo/p2.jpg">
+      <publishTime>07/29/2016 19:24:40</publishTime>
+    </File>
+    <File Include="public/images/fondo/p3.jpg">
+      <publishTime>07/29/2016 19:24:40</publishTime>
+    </File>
+    <File Include="public/images/fondo/p5.jpg">
+      <publishTime>07/29/2016 19:22:07</publishTime>
+    </File>
+    <File Include="public/images/fondo/PDF.jpg">
+      <publishTime>07/29/2016 23:48:38</publishTime>
+    </File>
+    <File Include="public/images/fondo/photo.jpg">
+      <publishTime>07/29/2016 23:48:38</publishTime>
+    </File>
+    <File Include="public/images/fondo/POSTER.jpg">
+      <publishTime>07/29/2016 23:48:38</publishTime>
+    </File>
+    <File Include="public/images/fondo/POSTER1.jpg">
+      <publishTime>07/29/2016 23:48:38</publishTime>
+    </File>
+    <File Include="public/images/fondo/POSTER2.jpg">
+      <publishTime>07/29/2016 23:48:39</publishTime>
+    </File>
+    <File Include="public/images/fondo/robot.jpg">
+      <publishTime>07/29/2016 23:48:39</publishTime>
+    </File>
+    <File Include="public/images/fondo/SP.png">
+      <publishTime>07/29/2016 23:48:39</publishTime>
+    </File>
+    <File Include="public/images/fondo/System.png">
+      <publishTime>07/28/2016 12:36:16</publishTime>
+    </File>
+    <File Include="public/images/fondo/UA.gif">
+      <publishTime>07/28/2016 12:36:16</publishTime>
+    </File>
+    <File Include="public/images/fondo/UDLA.gif">
+      <publishTime>07/29/2016 23:48:41</publishTime>
+    </File>
+    <File Include="public/images/fondo/UVA.png">
+      <publishTime>07/29/2016 23:48:35</publishTime>
+    </File>
+    <File Include="public/images/slider/1.JPG">
+      <publishTime>07/29/2016 00:03:00</publishTime>
+    </File>
+    <File Include="public/images/slider/2.JPG">
+      <publishTime>07/29/2016 00:03:00</publishTime>
+    </File>
+    <File Include="public/images/slider/4.JPG">
+      <publishTime>07/29/2016 00:03:00</publishTime>
+    </File>
+    <File Include="public/images/slider/5.JPG">
+      <publishTime>07/29/2016 00:03:00</publishTime>
+    </File>
+    <File Include="public/index/style.css">
+      <publishTime>07/29/2016 19:20:45</publishTime>
+    </File>
+    <File Include="scripts/ai.0.15.0-build58334.js">
+      <publishTime>06/21/2016 08:51:46</publishTime>
+    </File>
+    <File Include="scripts/ai.0.15.0-build58334.min.js">
+      <publishTime>06/21/2016 08:51:46</publishTime>
+    </File>
+    <File Include="Semilleros.aspx">
+      <publishTime>07/31/2016 20:52:07</publishTime>
+    </File>
+    <File Include="Views/Competencias/Gestionar.aspx">
+      <publishTime>07/29/2016 23:08:08</publishTime>
+    </File>
+    <File Include="Views/Competencias/GestionSalas.aspx">
+      <publishTime>07/29/2016 20:35:35</publishTime>
+    </File>
+    <File Include="Views/Competencias/Historial.aspx">
+      <publishTime>07/29/2016 20:36:00</publishTime>
+    </File>
+    <File Include="Views/Competencias/Inscripciones.aspx">
+      <publishTime>07/29/2016 23:11:18</publishTime>
+    </File>
+    <File Include="Views/Competencias/Inscritos.aspx">
+      <publishTime>07/29/2016 23:14:12</publishTime>
+    </File>
+    <File Include="Views/Cursos/Gestionar.aspx">
+      <publishTime>07/29/2016 23:17:00</publishTime>
+    </File>
+    <File Include="Views/Cursos/Inscritos.aspx">
+      <publishTime>07/29/2016 23:17:33</publishTime>
+    </File>
+    <File Include="Views/Cursos/MisCursos.aspx">
+      <publishTime>07/29/2016 23:18:43</publishTime>
+    </File>
+    <File Include="Views/Cursos/Solicitudes.aspx">
+      <publishTime>07/29/2016 20:38:08</publishTime>
+    </File>
+    <File Include="Views/Documentos/Repositorio.aspx">
+      <publishTime>07/29/2016 20:38:25</publishTime>
+    </File>
+    <File Include="Views/Documentos/Upload.aspx">
+      <publishTime>07/29/2016 23:20:38</publishTime>
+    </File>
+    <File Include="Views/Home/Login.aspx">
+      <publishTime>07/29/2016 22:53:19</publishTime>
+    </File>
+    <File Include="Views/Home/Main.aspx">
+      <publishTime>07/29/2016 23:47:09</publishTime>
+    </File>
+    <File Include="Views/Noticias/Gestionar.aspx">
+      <publishTime>07/29/2016 20:43:33</publishTime>
+    </File>
+    <File Include="Views/Plataforma/GestionarPermisos.aspx">
+      <publishTime>07/29/2016 23:22:07</publishTime>
+    </File>
+    <File Include="Views/Reportes/ReportForm.aspx">
+      <publishTime>07/29/2016 20:42:48</publishTime>
+    </File>
+    <File Include="Views/Semilleros/Gestionar.aspx">
+      <publishTime>07/29/2016 20:44:11</publishTime>
+    </File>
+    <File Include="Views/Shared/MasterPage.Master">
+      <publishTime>07/29/2016 23:40:00</publishTime>
+    </File>
+    <File Include="Views/Tareas/Asignar.aspx">
+      <publishTime>07/29/2016 20:39:38</publishTime>
+    </File>
+    <File Include="Views/Tareas/Enviar.aspx">
+      <publishTime>07/29/2016 20:39:58</publishTime>
+    </File>
+    <File Include="Views/Tareas/Gestionar.aspx">
+      <publishTime>07/29/2016 20:40:18</publishTime>
+    </File>
+    <File Include="Views/Tareas/Recibidos.aspx">
+      <publishTime>07/29/2016 20:40:28</publishTime>
+    </File>
+    <File Include="Views/Usuarios/Inscritos.aspx">
+      <publishTime>07/29/2016 20:43:43</publishTime>
+    </File>
+    <File Include="Views/Usuarios/Mail.aspx">
+      <publishTime>07/29/2016 23:45:12</publishTime>
+    </File>
+    <File Include="Views/Usuarios/Perfil.aspx">
+      <publishTime>07/29/2016 23:33:25</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>08/12/2016 15:46:48</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

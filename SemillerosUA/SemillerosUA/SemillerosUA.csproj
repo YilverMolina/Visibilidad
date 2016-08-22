@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4B4B172E-DC86-4405-BA8A-70A912756A33}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SemillerosUA</RootNamespace>
+    <AssemblyName>SemillerosUA</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.1.2.3\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.1.2.3\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.1.2.3\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.1.2.3\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.1.2.3\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=1.2.3.490, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.1.2.3\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="Index.aspx" />
+    <Content Include="scripts\ai.0.15.0-build58334.js" />
+    <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Semilleros.aspx" />
+    <Content Include="Views\Competencias\Gestionar.aspx" />
+    <Content Include="Views\Competencias\GestionSalas.aspx" />
+    <Content Include="Views\Competencias\Historial.aspx" />
+    <Content Include="Views\Competencias\Inscripciones.aspx" />
+    <Content Include="Views\Competencias\Inscritos.aspx" />
+    <Content Include="Views\Cursos\Gestionar.aspx" />
+    <Content Include="Views\Cursos\Inscritos.aspx" />
+    <Content Include="Views\Cursos\MisCursos.aspx" />
+    <Content Include="Views\Cursos\Solicitudes.aspx" />
+    <Content Include="Views\Documentos\Repositorio.aspx" />
+    <Content Include="Views\Documentos\Upload.aspx" />
+    <Content Include="Views\Home\Login.aspx" />
+    <Content Include="Views\Home\Main.aspx" />
+    <Content Include="Views\Noticias\Gestionar.aspx" />
+    <Content Include="Views\Plataforma\GestionarPermisos.aspx" />
+    <Content Include="Views\Reportes\ReportForm.aspx" />
+    <Content Include="Views\Semilleros\Gestionar.aspx" />
+    <Content Include="Views\Tareas\Asignar.aspx" />
+    <Content Include="Views\Tareas\Enviar.aspx" />
+    <Content Include="Views\Tareas\Gestionar.aspx" />
+    <Content Include="Views\Tareas\Recibidos.aspx" />
+    <Content Include="Views\Usuarios\Inscritos.aspx" />
+    <Content Include="Views\Usuarios\Mail.aspx" />
+    <Content Include="Views\Usuarios\Perfil.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\acceso_sistemaController.cs" />
+    <Compile Include="Controllers\actividadController.cs" />
+    <Compile Include="Controllers\adjuntos_tareasController.cs" />
+    <Compile Include="Controllers\asignacion_actividadesController.cs" />
+    <Compile Include="Controllers\asignacion_tareasController.cs" />
+    <Compile Include="Controllers\competenciaController.cs" />
+    <Compile Include="Controllers\correos_enviadosController.cs" />
+    <Compile Include="Controllers\cuenta_correoController.cs" />
+    <Compile Include="Controllers\cursosController.cs" />
+    <Compile Include="Controllers\detalle_tareaController.cs" />
+    <Compile Include="Controllers\documentoController.cs" />
+    <Compile Include="Controllers\entregasController.cs" />
+    <Compile Include="Controllers\estudiantes_cursosController.cs" />
+    <Compile Include="Controllers\eventoController.cs" />
+    <Compile Include="Controllers\grupoController.cs" />
+    <Compile Include="Controllers\grupo_investigacionController.cs" />
+    <Compile Include="Controllers\horarios_cursoController.cs" />
+    <Compile Include="Controllers\integrantes_grupoController.cs" />
+    <Compile Include="Controllers\lider_semilleroController.cs" />
+    <Compile Include="Controllers\menu_usuarioController.cs" />
+    <Compile Include="Controllers\nivelController.cs" />
+    <Compile Include="Controllers\niveles_competenciasController.cs" />
+    <Compile Include="Controllers\noticiaController.cs" />
+    <Compile Include="Controllers\notificacionController.cs" />
+    <Compile Include="Controllers\permisosController.cs" />
+    <Compile Include="Controllers\personaController.cs" />
+    <Compile Include="Controllers\programaController.cs" />
+    <Compile Include="Controllers\programas_grupos_invController.cs" />
+    <Compile Include="Controllers\programas_semilleroController.cs" />
+    <Compile Include="Controllers\proyectosController.cs" />
+    <Compile Include="Controllers\repositorioController.cs" />
+    <Compile Include="Controllers\rolController.cs" />
+    <Compile Include="Controllers\rol_semilleroController.cs" />
+    <Compile Include="Controllers\semilleroController.cs" />
+    <Compile Include="Controllers\solicitudesController.cs" />
+    <Compile Include="Controllers\subpermisosController.cs" />
+    <Compile Include="Controllers\tareasController.cs" />
+    <Compile Include="Controllers\tipo_actividadController.cs" />
+    <Compile Include="Controllers\tipo_cursoController.cs" />
+    <Compile Include="Controllers\tipo_noticiaController.cs" />
+    <Compile Include="Controllers\tipo_notificacionController.cs" />
+    <Compile Include="Controllers\usuarioController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BD\Conexion.cs" />
+    <Compile Include="Models\BD\Parametro.cs" />
+    <Compile Include="Models\BD\Seguridad.cs" />
+    <Compile Include="Models\BD\Transaction.cs" />
+    <Compile Include="Models\Clases\acceso_sistema.cs" />
+    <Compile Include="Models\Clases\actividad.cs" />
+    <Compile Include="Models\Clases\adjuntos_tareas.cs" />
+    <Compile Include="Models\Clases\asignacion_actividades.cs" />
+    <Compile Include="Models\Clases\asignacion_tareas.cs" />
+    <Compile Include="Models\Clases\competencia.cs" />
+    <Compile Include="Models\Clases\correos_enviados.cs" />
+    <Compile Include="Models\Clases\cuenta_correo.cs" />
+    <Compile Include="Models\Clases\cursos.cs" />
+    <Compile Include="Models\Clases\detalle_tarea.cs" />
+    <Compile Include="Models\Clases\documento.cs" />
+    <Compile Include="Models\Clases\entregas.cs" />
+    <Compile Include="Models\Clases\estudiantes_cursos.cs" />
+    <Compile Include="Models\Clases\evento.cs" />
+    <Compile Include="Models\Clases\grupo.cs" />
+    <Compile Include="Models\Clases\grupo_investigacion.cs" />
+    <Compile Include="Models\Clases\horarios_curso.cs" />
+    <Compile Include="Models\Clases\integrantes_grupo.cs" />
+    <Compile Include="Models\Clases\lider_semillero.cs" />
+    <Compile Include="Models\Clases\menu_usuario.cs" />
+    <Compile Include="Models\Clases\nivel.cs" />
+    <Compile Include="Models\Clases\niveles_competencias.cs" />
+    <Compile Include="Models\Clases\noticia.cs" />
+    <Compile Include="Models\Clases\notificacion.cs" />
+    <Compile Include="Models\Clases\permisos.cs" />
+    <Compile Include="Models\Clases\persona.cs" />
+    <Compile Include="Models\Clases\programa.cs" />
+    <Compile Include="Models\Clases\programas_grupos_inv.cs" />
+    <Compile Include="Models\Clases\programas_semillero.cs" />
+    <Compile Include="Models\Clases\proyectos.cs" />
+    <Compile Include="Models\Clases\repositorio.cs" />
+    <Compile Include="Models\Clases\rol.cs" />
+    <Compile Include="Models\Clases\rol_semillero.cs" />
+    <Compile Include="Models\Clases\Security.cs" />
+    <Compile Include="Models\Clases\semillero.cs" />
+    <Compile Include="Models\Clases\solicitudes.cs" />
+    <Compile Include="Models\Clases\subpermisos.cs" />
+    <Compile Include="Models\Clases\tareas.cs" />
+    <Compile Include="Models\Clases\tipo_actividad.cs" />
+    <Compile Include="Models\Clases\tipo_curso.cs" />
+    <Compile Include="Models\Clases\tipo_noticia.cs" />
+    <Compile Include="Models\Clases\tipo_notificacion.cs" />
+    <Compile Include="Models\Clases\usuario.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Semilleros.aspx.cs">
+      <DependentUpon>Semilleros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Semilleros.aspx.designer.cs">
+      <DependentUpon>Semilleros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Competencias\Gestionar.aspx.cs">
+      <DependentUpon>Gestionar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Competencias\Gestionar.aspx.designer.cs">
+      <DependentUpon>Gestionar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Competencias\GestionSalas.aspx.cs">
+      <DependentUpon>GestionSalas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Competencias\GestionSalas.aspx.designer.cs">
+      <DependentUpon>GestionSalas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Competencias\Historial.aspx.cs">
+      <DependentUpon>Historial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Competencias\Historial.aspx.designer.cs">
+      <DependentUpon>Historial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Competencias\Inscripciones.aspx.cs">
+      <DependentUpon>Inscripciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Competencias\Inscripciones.aspx.designer.cs">
+      <DependentUpon>Inscripciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Competencias\Inscritos.aspx.cs">
+      <DependentUpon>Inscritos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Competencias\Inscritos.aspx.designer.cs">
+      <DependentUpon>Inscritos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cursos\Gestionar.aspx.cs">
+      <DependentUpon>Gestionar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Cursos\Gestionar.aspx.designer.cs">
+      <DependentUpon>Gestionar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cursos\Inscritos.aspx.cs">
+      <DependentUpon>Inscritos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Cursos\Inscritos.aspx.designer.cs">
+      <DependentUpon>Inscritos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cursos\MisCursos.aspx.cs">
+      <DependentUpon>MisCursos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Cursos\MisCursos.aspx.designer.cs">
+      <DependentUpon>MisCursos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cursos\Solicitudes.aspx.cs">
+      <DependentUpon>Solicitudes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Cursos\Solicitudes.aspx.designer.cs">
+      <DependentUpon>Solicitudes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Documentos\Repositorio.aspx.cs">
+      <DependentUpon>Repositorio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Documentos\Repositorio.aspx.designer.cs">
+      <DependentUpon>Repositorio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Documentos\Upload.aspx.cs">
+      <DependentUpon>Upload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Documentos\Upload.aspx.designer.cs">
+      <DependentUpon>Upload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Home\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\Main.aspx.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Home\Main.aspx.designer.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Noticias\Gestionar.aspx.cs">
+      <DependentUpon>Gestionar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Noticias\Gestionar.aspx.designer.cs">
+      <DependentUpon>Gestionar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Plataforma\GestionarPermisos.aspx.cs">
+      <DependentUpon>GestionarPermisos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Plataforma\GestionarPermisos.aspx.designer.cs">
+      <DependentUpon>GestionarPermisos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reportes\ReportForm.aspx.cs">
+      <DependentUpon>ReportForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Reportes\ReportForm.aspx.designer.cs">
+      <DependentUpon>ReportForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Semilleros\Gestionar.aspx.cs">
+      <DependentUpon>Gestionar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Semilleros\Gestionar.aspx.designer.cs">
+      <DependentUpon>Gestionar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tareas\Asignar.aspx.cs">
+      <DependentUpon>Asignar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Tareas\Asignar.aspx.designer.cs">
+      <DependentUpon>Asignar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tareas\Enviar.aspx.cs">
+      <DependentUpon>Enviar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Tareas\Enviar.aspx.designer.cs">
+      <DependentUpon>Enviar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tareas\Gestionar.aspx.cs">
+      <DependentUpon>Gestionar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Tareas\Gestionar.aspx.designer.cs">
+      <DependentUpon>Gestionar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tareas\Recibidos.aspx.cs">
+      <DependentUpon>Recibidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Tareas\Recibidos.aspx.designer.cs">
+      <DependentUpon>Recibidos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usuarios\Inscritos.aspx.cs">
+      <DependentUpon>Inscritos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Usuarios\Inscritos.aspx.designer.cs">
+      <DependentUpon>Inscritos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usuarios\Mail.aspx.cs">
+      <DependentUpon>Mail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Usuarios\Mail.aspx.designer.cs">
+      <DependentUpon>Mail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usuarios\Perfil.aspx.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Usuarios\Perfil.aspx.designer.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Shared\MasterPage.Master" />
+    <Content Include="json.json" />
+    <None Include="Properties\PublishProfiles\Semilleros.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63852</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:63852/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

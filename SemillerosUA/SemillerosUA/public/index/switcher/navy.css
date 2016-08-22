@@ -1,0 +1,156 @@
+a {
+    color: #34495e
+}
+.post-title a:hover {
+    color: #34495e
+}
+ul.bullet li:before {
+    color: #34495e;
+}
+.meta a:hover,
+.more:hover {
+    color: #34495e
+}
+blockquote small {
+    color: #34495e;
+}
+i.large {
+    color: #34495e;
+}
+.btn,
+.btn-group > .btn,
+.parallax .btn {
+    background: #34495e;
+}
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn.active,
+.pagination ul > li > a:hover,
+.pagination ul > li > a:focus,
+.pagination ul > .active > a,
+.pagination ul > .active > span {
+    background: #2c3e50;
+}
+.sb-navigation-left:hover,
+.sb-navigation-right:hover {
+    background: #2c3e50 !important;
+}
+.black-wrapper a:hover {
+    color: #34495e
+}
+#header.navbar .nav > .active > a,
+#header.navbar .nav > .active > a:hover,
+#header.navbar .nav > .active > a:focus {
+    color: #34495e;
+}
+#header.navbar .nav > li > a:hover {
+    color: #34495e
+}
+#header.navbar .nav li.dropdown.open > .dropdown-toggle,
+#header.navbar .nav li.dropdown.active > .dropdown-toggle,
+#header.navbar .nav li.dropdown.open.active > .dropdown-toggle {
+    background: #34495e;
+}
+#header .dropdown-menu > li > a:hover,
+#header .dropdown-menu > li > a:focus,
+#header .dropdown-submenu:hover > a,
+#header .dropdown-submenu:focus > a,
+#header .dropdown-menu > .active > a,
+#header .dropdown-menu > .active > a:hover,
+#header .dropdown-menu > .active > a:focus {
+    color: #34495e;
+}
+.tp-caption .color {
+    color: #34495e
+}
+.sb-navigation-left:hover,
+.sb-navigation-right:hover {
+    background: #34495e;
+}
+.item-details li a:hover {
+    color: #34495e
+}
+.sidebox a:hover {
+    color: #34495e
+}
+.pagination ul > li > a,
+.pagination ul > li > span {
+    background: #34495e;
+}
+#comments .info h2 a:hover {
+    color: #34495e
+}
+#comments a.reply-link:hover {
+    color: #34495e
+}
+.tab a.active,
+.tab a:hover {
+    color: #34495e
+}
+#testimonials .author {
+    color: #34495e;
+}
+#testimonials .tab a.active,
+#testimonials .tab a:hover {
+    background: #34495e;
+}
+.nav-tabs > .active > a {
+    background: #34495e;
+}
+.nav.nav-tabs > li > a:hover,
+.nav.nav-tabs > li > a:focus {
+    background: #34495e;
+}
+.nav.nav-tabs > .active > a,
+.nav.nav-tabs > .active > a:hover,
+.nav.nav-tabs > .active > a:focus {
+    background: #34495e;
+}
+.accordion-heading .accordion-toggle.active,
+.accordion-heading .accordion-toggle:hover {
+    background: #34495e;
+}
+.progress-list li em {
+    color: #34495e;
+}
+.progress.plain .bar {
+    background: #34495e;
+}
+.fix-portfolio .filter li a.active,
+.fix-portfolio .filter li a:hover {
+    color: #34495e
+}
+.pricing .plan h4 span {
+    color: #34495e
+}
+@media (min-width: 768px) and (max-width: 979px) { 
+	#header .dropdown-menu > li > a:hover,
+	#header .dropdown-menu > li > a:focus,
+	#header .dropdown-submenu:hover > a,
+	#header .dropdown-submenu:focus > a,
+	#header .dropdown-menu > .active > a,
+	#header .dropdown-menu > .active > a:hover,
+	#header .dropdown-menu > .active > a:focus,
+	#header .nav-collapse .nav > li > a:hover,
+	#header .nav-collapse .nav > li > a:focus,
+	#header .nav-collapse .dropdown-menu a:hover,
+	#header .nav-collapse .dropdown-menu a:focus {
+	    color: #34495e;
+	}
+}
+@media (max-width: 767px) { 
+	#header .dropdown-menu > li > a:hover,
+	#header .dropdown-menu > li > a:focus,
+	#header .dropdown-submenu:hover > a,
+	#header .dropdown-submenu:focus > a,
+	#header .dropdown-menu > .active > a,
+	#header .dropdown-menu > .active > a:hover,
+	#header .dropdown-menu > .active > a:focus,
+	#header .nav-collapse .nav > li > a:hover,
+	#header .nav-collapse .nav > li > a:focus,
+	#header .nav-collapse .dropdown-menu a:hover,
+	#header .nav-collapse .dropdown-menu a:focus {
+	    color: #34495e;
+	}
+}
