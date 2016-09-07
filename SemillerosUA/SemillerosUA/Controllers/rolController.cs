@@ -43,6 +43,14 @@ namespace SemillerosUA.Controllers
         {
             return data();
         }
+
+        public IEnumerable<DataRow> get_rols()
+        {
+            DataTable dt = obj_rol.get_rol();
+            List<DataRow> dtList = dt.AsEnumerable().ToList();
+            return dtList;
+        }
+
         public IHttpActionResult get_rol(int id)
         {
             var obj = data().FirstOrDefault((o) => o.rol_idrol == id);

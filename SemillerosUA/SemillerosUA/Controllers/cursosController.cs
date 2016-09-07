@@ -43,6 +43,12 @@ namespace SemillerosUA.Controllers
         {
             return data();
         }
+
+        public IEnumerable<cursos> get_cursos_activos()
+        {
+            return data();
+        }
+
         public IHttpActionResult get_cursos(int id)
         {
             var obj = data().FirstOrDefault((o) => o.curs_idcurso == id);
@@ -67,6 +73,7 @@ namespace SemillerosUA.Controllers
                 return "I500";
             }
         }
+
         [HttpPost]
         public string update_cursos(cursos obj)
         {

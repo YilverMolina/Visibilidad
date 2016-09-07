@@ -41,3 +41,46 @@ C:\Users\YilverMolina\Documents\Visual Studio 2015\Projects\SemillerosUA\Semille
 C:\Users\YilverMolina\Documents\Visual Studio 2015\Projects\SemillerosUA\SemillerosUA\obj\Debug\SemillerosUA.pdb
 C:\Users\YilverMolina\Documents\Visual Studio 2015\Projects\SemillerosUA\SemillerosUA\obj\Debug\SemillerosUA.csprojResolveAssemblyReference.cache
 C:\Users\YilverMolina\Documents\Visual Studio 2015\Projects\SemillerosUA\SemillerosUA\bin\Oracle.ManagedDataAccess.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\ApplicationInsights.config
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\roslyn\csc.exe
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\roslyn\System.Collections.Immutable.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\roslyn\System.Reflection.Metadata.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\roslyn\vbc.exe
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\roslyn\VBCSCompiler.exe
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\roslyn\VBCSCompiler.exe.config
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\SemillerosUA.dll.config
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\SemillerosUA.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\SemillerosUA.pdb
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\Microsoft.AI.Agent.Intercept.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\Microsoft.AI.DependencyCollector.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\Microsoft.AI.Web.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\Microsoft.AI.WindowsServer.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\Microsoft.ApplicationInsights.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\MySql.Data.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\Newtonsoft.Json.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\Oracle.ManagedDataAccess.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\System.Net.Http.Formatting.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\System.Web.Http.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\System.Web.Http.WebHost.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\Microsoft.AI.DependencyCollector.xml
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\Microsoft.AI.Web.xml
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\Microsoft.AI.WindowsServer.xml
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\Microsoft.ApplicationInsights.xml
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\Newtonsoft.Json.xml
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\System.Net.Http.Formatting.xml
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\System.Web.Http.xml
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\System.Web.Http.WebHost.xml
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\obj\Debug\SemillerosUA.csprojResolveAssemblyReference.cache
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\obj\Debug\SemillerosUA.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\obj\Debug\SemillerosUA.pdb

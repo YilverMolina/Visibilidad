@@ -217,6 +217,7 @@
     <Compile Include="Models\Clases\entregas.cs" />
     <Compile Include="Models\Clases\estudiantes_cursos.cs" />
     <Compile Include="Models\Clases\evento.cs" />
+    <Compile Include="Models\Clases\GeneralMethods.cs" />
     <Compile Include="Models\Clases\grupo.cs" />
     <Compile Include="Models\Clases\grupo_investigacion.cs" />
     <Compile Include="Models\Clases\horarios_curso.cs" />
