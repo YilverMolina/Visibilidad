@@ -25,10 +25,12 @@ namespace CongresoTIC.Controllers
             }
             return acceso_sistemas;
         }
+
         public IHttpActionResult get_acceso_sistema()
         {
             return Json(obj_acceso_sistema.get_acceso_sistema());
         }
+
         public IHttpActionResult get_acceso_sistema(int id)
         {
             var obj = data().FirstOrDefault((o) => o.astm_idacceso == id);

@@ -51,9 +51,11 @@ namespace SemillerosUA.Models.Clases
             return conexion.realizarConsulta("PR_SELECT_CURSOS ", "CR_RESULT ", null);
         }
 
-        public DataTable get_cursos_activos()
+        public DataTable get_cursos_activos(cursos obj)
         {
-            return conexion.realizarConsulta("PR_SELECT_CURSOS ", "CR_RESULT ", null);
+            Parametro[] param = new Parametro[1];
+            param[0] = new Parametro("CURS_ESTADO", obj.curs_estado);
+            return conexion.realizarConsulta("PR_SELECT_CURSOS ", "CR_RESULT ", param);
         }
 
         //TRANSACTIONS

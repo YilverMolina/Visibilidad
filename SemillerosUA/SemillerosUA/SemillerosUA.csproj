@@ -125,7 +125,6 @@
     <Content Include="Index.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
-    <Content Include="Semilleros.aspx" />
     <Content Include="Views\Competencias\Gestionar.aspx" />
     <Content Include="Views\Competencias\GestionSalas.aspx" />
     <Content Include="Views\Competencias\Historial.aspx" />
@@ -257,13 +256,6 @@
     <Compile Include="Models\Clases\tipo_notificacion.cs" />
     <Compile Include="Models\Clases\usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Semilleros.aspx.cs">
-      <DependentUpon>Semilleros.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Semilleros.aspx.designer.cs">
-      <DependentUpon>Semilleros.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Views\Competencias\Gestionar.aspx.cs">
       <DependentUpon>Gestionar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
