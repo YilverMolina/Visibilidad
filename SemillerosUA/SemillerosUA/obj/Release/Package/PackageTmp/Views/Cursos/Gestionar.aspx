@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     <title>Gestionar</title>
-    <script language="javascript" type="text/javascript">
+    <script lang="javascript" type="text/javascript">
 
         function openSave() {
 

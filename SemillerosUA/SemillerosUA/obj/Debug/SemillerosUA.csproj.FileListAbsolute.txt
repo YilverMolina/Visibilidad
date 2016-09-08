@@ -84,3 +84,7 @@ E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\System.Web.Http.WebH
 E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\obj\Debug\SemillerosUA.csprojResolveAssemblyReference.cache
 E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\obj\Debug\SemillerosUA.dll
 E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\obj\Debug\SemillerosUA.pdb
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\EntityFramework.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\EntityFramework.SqlServer.dll
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\EntityFramework.xml
+E:\GIECOM\Eventos\Visibilidad\SemillerosUA\SemillerosUA\bin\EntityFramework.SqlServer.xml

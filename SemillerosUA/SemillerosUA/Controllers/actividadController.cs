@@ -4,25 +4,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace SemillerosUA.Controllers
+namespace CongresoTIC.Controllers
 {
     public class actividadController : ApiController
     {
         actividad obj_actividad = new actividad();
-        public DataRow[] allactividad()
-        {
-            DataTable dt = obj_actividad.get_actividad();
-            DataRow[] rows = null;
-            if (dt.Rows.Count > 0)
-            {
-                rows = new DataRow[dt.Rows.Count];
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    rows[i] = dt.Rows[i];
-                }
-            }
-            return rows;
-        }
         public actividad[] data()
         {
             DataTable dt = obj_actividad.get_actividad();
@@ -39,9 +25,9 @@ namespace SemillerosUA.Controllers
             }
             return actividads;
         }
-        public IEnumerable<actividad> get_actividad()
+        public IHttpActionResult get_actividad()
         {
-            return data();
+            return Json(obj_actividad.get_actividad());
         }
         public IHttpActionResult get_actividad(int id)
         {
@@ -55,28 +41,54 @@ namespace SemillerosUA.Controllers
                 return NotFound();
             }
         }
-        [HttpPost]
-        public string insert_actividad(actividad obj)
+        public IHttpActionResult insert_actividad(actividad obj)
         {
-            if (obj_actividad.insert_actividad(obj))
+            if (!ModelState.IsValid)
             {
-                return "I200";
+                return BadRequest(ModelState);
             }
             else
             {
-                return "I500";
+                if (obj_actividad.insert_actividad(obj))
+                {
+                    return Json(new
+                    {
+                        data = obj,
+                        result = true
+                    });
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        result = false
+                    });
+                }
             }
         }
-        [HttpPost]
-        public string update_actividad(actividad obj)
+        public IHttpActionResult update_actividad(actividad obj)
         {
-            if (obj_actividad.update_actividad(obj))
+            if (!ModelState.IsValid)
             {
-                return "U200";
+                return BadRequest(ModelState);
             }
             else
             {
-                return "U500";
+                if (obj_actividad.update_actividad(obj))
+                {
+                    return Json(new
+                    {
+                        data = obj,
+                        result = true
+                    });
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        result = false
+                    });
+                }
             }
         }
     }
