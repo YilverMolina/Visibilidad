@@ -37,6 +37,20 @@ namespace SemillerosUA.Models.Clases
             return conexion.realizarConsulta("PR_SELECT_SEMILLERO ", "CR_RESULT ", null);
         }
 
+        public DataTable get_semillero_id(string id)
+        {
+            Parametro[] param = new Parametro[1];
+            param[0] = new Parametro("IDE", id);
+            return conexion.realizarConsulta("PR_SELECT_SEMILLERO_ID", "CR_RESULT ", param);
+        }
+
+        public DataTable get_semillero_programa(string id)
+        {
+            Parametro[] param = new Parametro[1];
+            param[0] = new Parametro("PROG", id);
+            return conexion.realizarConsulta("PR_SEMILLEROS_POR_PROGRAMA", "CR_RESULT ", param);
+        }
+
         public Parametro[] getParameters(semillero obj)
         {
             Parametro[] param = new Parametro[8];

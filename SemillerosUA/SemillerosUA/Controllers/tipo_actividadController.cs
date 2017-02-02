@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class tipo_actividadController : ApiController
     {
         tipo_actividad obj_tipo_actividad = new tipo_actividad();
+        public DataRow[] alltipo_actividad()
+        {
+            DataTable dt = obj_tipo_actividad.get_tipo_actividad();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public tipo_actividad[] data()
         {
             DataTable dt = obj_tipo_actividad.get_tipo_actividad();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return tipo_actividads;
         }
-        public IHttpActionResult get_tipo_actividad()
+        public IEnumerable<tipo_actividad> get_tipo_actividad()
         {
-            return Json(obj_tipo_actividad.get_tipo_actividad());
+            return data();
         }
         public IHttpActionResult get_tipo_actividad(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_tipo_actividad(tipo_actividad obj)
+        [HttpPost]
+        public string insert_tipo_actividad(tipo_actividad obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_tipo_actividad.insert_tipo_actividad(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_tipo_actividad.insert_tipo_actividad(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_tipo_actividad(tipo_actividad obj)
+        [HttpPost]
+        public string update_tipo_actividad(tipo_actividad obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_tipo_actividad.update_tipo_actividad(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_tipo_actividad.update_tipo_actividad(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

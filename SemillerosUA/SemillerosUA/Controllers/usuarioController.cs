@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class usuarioController : ApiController
     {
         usuario obj_usuario = new usuario();
+        public DataRow[] allusuario()
+        {
+            DataTable dt = obj_usuario.get_usuario();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public usuario[] data()
         {
             DataTable dt = obj_usuario.get_usuario();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return usuarios;
         }
-        public IHttpActionResult get_usuario()
+        public IEnumerable<usuario> get_usuario()
         {
-            return Json(obj_usuario.get_usuario());
+            return data();
         }
         public IHttpActionResult get_usuario(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_usuario(usuario obj)
+        [HttpPost]
+        public string insert_usuario(usuario obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_usuario.insert_usuario(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_usuario.insert_usuario(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_usuario(usuario obj)
+        [HttpPost]
+        public string update_usuario(usuario obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_usuario.update_usuario(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_usuario.update_usuario(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

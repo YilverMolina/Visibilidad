@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class solicitudesController : ApiController
     {
         solicitudes obj_solicitudes = new solicitudes();
+        public DataRow[] allsolicitudes()
+        {
+            DataTable dt = obj_solicitudes.get_solicitudes();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public solicitudes[] data()
         {
             DataTable dt = obj_solicitudes.get_solicitudes();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return solicitudess;
         }
-        public IHttpActionResult get_solicitudes()
+        public IEnumerable<solicitudes> get_solicitudes()
         {
-            return Json(obj_solicitudes.get_solicitudes());
+            return data();
         }
         public IHttpActionResult get_solicitudes(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_solicitudes(solicitudes obj)
+        [HttpPost]
+        public string insert_solicitudes(solicitudes obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_solicitudes.insert_solicitudes(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_solicitudes.insert_solicitudes(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_solicitudes(solicitudes obj)
+        [HttpPost]
+        public string update_solicitudes(solicitudes obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_solicitudes.update_solicitudes(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_solicitudes.update_solicitudes(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

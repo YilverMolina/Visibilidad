@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class documentoController : ApiController
     {
         documento obj_documento = new documento();
+        public DataRow[] alldocumento()
+        {
+            DataTable dt = obj_documento.get_documento();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public documento[] data()
         {
             DataTable dt = obj_documento.get_documento();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return documentos;
         }
-        public IHttpActionResult get_documento()
+        public IEnumerable<documento> get_documento()
         {
-            return Json(obj_documento.get_documento());
+            return data();
         }
         public IHttpActionResult get_documento(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_documento(documento obj)
+        [HttpPost]
+        public string insert_documento(documento obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_documento.insert_documento(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_documento.insert_documento(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_documento(documento obj)
+        [HttpPost]
+        public string update_documento(documento obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_documento.update_documento(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_documento.update_documento(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

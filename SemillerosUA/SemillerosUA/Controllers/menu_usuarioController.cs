@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class menu_usuarioController : ApiController
     {
         menu_usuario obj_menu_usuario = new menu_usuario();
+        public DataRow[] allmenu_usuario()
+        {
+            DataTable dt = obj_menu_usuario.get_menu_usuario();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public menu_usuario[] data()
         {
             DataTable dt = obj_menu_usuario.get_menu_usuario();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return menu_usuarios;
         }
-        public IHttpActionResult get_menu_usuario()
+        public IEnumerable<menu_usuario> get_menu_usuario()
         {
-            return Json(obj_menu_usuario.get_menu_usuario());
+            return data();
         }
         public IHttpActionResult get_menu_usuario(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_menu_usuario(menu_usuario obj)
+        [HttpPost]
+        public string insert_menu_usuario(menu_usuario obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_menu_usuario.insert_menu_usuario(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_menu_usuario.insert_menu_usuario(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_menu_usuario(menu_usuario obj)
+        [HttpPost]
+        public string update_menu_usuario(menu_usuario obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_menu_usuario.update_menu_usuario(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_menu_usuario.update_menu_usuario(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

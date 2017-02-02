@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class tipo_cursoController : ApiController
     {
         tipo_curso obj_tipo_curso = new tipo_curso();
+        public DataRow[] alltipo_curso()
+        {
+            DataTable dt = obj_tipo_curso.get_tipo_curso();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public tipo_curso[] data()
         {
             DataTable dt = obj_tipo_curso.get_tipo_curso();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return tipo_cursos;
         }
-        public IHttpActionResult get_tipo_curso()
+        public IEnumerable<tipo_curso> get_tipo_curso()
         {
-            return Json(obj_tipo_curso.get_tipo_curso());
+            return data();
         }
         public IHttpActionResult get_tipo_curso(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_tipo_curso(tipo_curso obj)
+        [HttpPost]
+        public string insert_tipo_curso(tipo_curso obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_tipo_curso.insert_tipo_curso(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_tipo_curso.insert_tipo_curso(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_tipo_curso(tipo_curso obj)
+        [HttpPost]
+        public string update_tipo_curso(tipo_curso obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_tipo_curso.update_tipo_curso(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_tipo_curso.update_tipo_curso(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

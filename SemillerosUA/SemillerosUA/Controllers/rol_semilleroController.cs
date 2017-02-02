@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class rol_semilleroController : ApiController
     {
         rol_semillero obj_rol_semillero = new rol_semillero();
+        public DataRow[] allrol_semillero()
+        {
+            DataTable dt = obj_rol_semillero.get_rol_semillero();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public rol_semillero[] data()
         {
             DataTable dt = obj_rol_semillero.get_rol_semillero();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return rol_semilleros;
         }
-        public IHttpActionResult get_rol_semillero()
+        public IEnumerable<rol_semillero> get_rol_semillero()
         {
-            return Json(obj_rol_semillero.get_rol_semillero());
+            return data();
         }
         public IHttpActionResult get_rol_semillero(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_rol_semillero(rol_semillero obj)
+        [HttpPost]
+        public string insert_rol_semillero(rol_semillero obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_rol_semillero.insert_rol_semillero(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_rol_semillero.insert_rol_semillero(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_rol_semillero(rol_semillero obj)
+        [HttpPost]
+        public string update_rol_semillero(rol_semillero obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_rol_semillero.update_rol_semillero(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_rol_semillero.update_rol_semillero(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

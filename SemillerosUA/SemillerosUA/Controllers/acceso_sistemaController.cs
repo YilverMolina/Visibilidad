@@ -4,11 +4,26 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+
+namespace SemillerosUA.Controllers
 {
     public class acceso_sistemaController : ApiController
     {
         acceso_sistema obj_acceso_sistema = new acceso_sistema();
+        public DataRow[] allacceso_sistema()
+        {
+            DataTable dt = obj_acceso_sistema.get_acceso_sistema();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public acceso_sistema[] data()
         {
             DataTable dt = obj_acceso_sistema.get_acceso_sistema();
@@ -25,12 +40,10 @@ namespace CongresoTIC.Controllers
             }
             return acceso_sistemas;
         }
-
-        public IHttpActionResult get_acceso_sistema()
+        public IEnumerable<acceso_sistema> get_acceso_sistema()
         {
-            return Json(obj_acceso_sistema.get_acceso_sistema());
+            return data();
         }
-
         public IHttpActionResult get_acceso_sistema(int id)
         {
             var obj = data().FirstOrDefault((o) => o.astm_idacceso == id);
@@ -43,54 +56,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_acceso_sistema(acceso_sistema obj)
+        [HttpPost]
+        public string insert_acceso_sistema(acceso_sistema obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_acceso_sistema.insert_acceso_sistema(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_acceso_sistema.insert_acceso_sistema(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_acceso_sistema(acceso_sistema obj)
+        [HttpPost]
+        public string update_acceso_sistema(acceso_sistema obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_acceso_sistema.update_acceso_sistema(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_acceso_sistema.update_acceso_sistema(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class niveles_competenciasController : ApiController
     {
         niveles_competencias obj_niveles_competencias = new niveles_competencias();
+        public DataRow[] allniveles_competencias()
+        {
+            DataTable dt = obj_niveles_competencias.get_niveles_competencias();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public niveles_competencias[] data()
         {
             DataTable dt = obj_niveles_competencias.get_niveles_competencias();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return niveles_competenciass;
         }
-        public IHttpActionResult get_niveles_competencias()
+        public IEnumerable<niveles_competencias> get_niveles_competencias()
         {
-            return Json(obj_niveles_competencias.get_niveles_competencias());
+            return data();
         }
         public IHttpActionResult get_niveles_competencias(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_niveles_competencias(niveles_competencias obj)
+        [HttpPost]
+        public string insert_niveles_competencias(niveles_competencias obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_niveles_competencias.insert_niveles_competencias(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_niveles_competencias.insert_niveles_competencias(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_niveles_competencias(niveles_competencias obj)
+        [HttpPost]
+        public string update_niveles_competencias(niveles_competencias obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_niveles_competencias.update_niveles_competencias(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_niveles_competencias.update_niveles_competencias(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

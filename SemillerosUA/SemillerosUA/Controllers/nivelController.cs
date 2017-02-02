@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class nivelController : ApiController
     {
         nivel obj_nivel = new nivel();
+        public DataRow[] allnivel()
+        {
+            DataTable dt = obj_nivel.get_nivel();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public nivel[] data()
         {
             DataTable dt = obj_nivel.get_nivel();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return nivels;
         }
-        public IHttpActionResult get_nivel()
+        public IEnumerable<nivel> get_nivel()
         {
-            return Json(obj_nivel.get_nivel());
+            return data();
         }
         public IHttpActionResult get_nivel(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_nivel(nivel obj)
+        [HttpPost]
+        public string insert_nivel(nivel obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_nivel.insert_nivel(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_nivel.insert_nivel(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_nivel(nivel obj)
+        [HttpPost]
+        public string update_nivel(nivel obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_nivel.update_nivel(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_nivel.update_nivel(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

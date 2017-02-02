@@ -4,91 +4,55 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class semilleroController : ApiController
     {
         semillero obj_semillero = new semillero();
-        public semillero[] data()
+
+
+        public DataTable get_semillero()
         {
-            DataTable dt = obj_semillero.get_semillero();
-            DataRow row;
-            semillero[] semilleros = null;
-            if (dt.Rows.Count > 0)
-            {
-                semilleros = new semillero[dt.Rows.Count];
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    row = dt.Rows[i];
-                    semilleros[i] = new semillero(Convert.ToInt32(row["smlr_idsemillero"].ToString()), row["smlr_nombre"].ToString(), row["smlr_descripcion"].ToString(), row["smlr_rutalogo"].ToString(), row["smlr_mision"].ToString(), row["smlr_vision"].ToString(), row["smlr_ruta"].ToString(), Convert.ToInt32(row["griv_idgrupoinv"].ToString()));
-                }
-            }
-            return semilleros;
+            return obj_semillero.get_semillero();
         }
-        public IHttpActionResult get_semillero()
+
+        public IHttpActionResult get_semillero_programa(string id)
         {
-            return Json(obj_semillero.get_semillero());
+            return Json(obj_semillero.get_semillero_programa(id));
         }
-        public IHttpActionResult get_semillero(int id)
+
+        public DataTable get_semillero_id(string id)
         {
-            var obj = data().FirstOrDefault((o) => o.smlr_idsemillero == id);
-            if (obj != null)
+            return obj_semillero.get_semillero_id(id);
+        }
+        public IHttpActionResult get_semillero_by_id(string id)
+        {
+            return Json(obj_semillero.get_semillero_id(id));
+        }
+
+
+        [HttpPost]
+        public string insert_semillero(semillero obj)
+        {
+            if (obj_semillero.insert_semillero(obj))
             {
-                return Ok(obj);
+                return "I200";
             }
             else
             {
-                return NotFound();
+                return "I500";
             }
         }
-        public IHttpActionResult insert_semillero(semillero obj)
+        [HttpPost]
+        public string update_semillero(semillero obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_semillero.update_semillero(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_semillero.insert_semillero(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
-            }
-        }
-        public IHttpActionResult update_semillero(semillero obj)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            else
-            {
-                if (obj_semillero.update_semillero(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

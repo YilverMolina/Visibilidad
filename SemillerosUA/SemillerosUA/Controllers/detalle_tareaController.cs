@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class detalle_tareaController : ApiController
     {
         detalle_tarea obj_detalle_tarea = new detalle_tarea();
+        public DataRow[] alldetalle_tarea()
+        {
+            DataTable dt = obj_detalle_tarea.get_detalle_tarea();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public detalle_tarea[] data()
         {
             DataTable dt = obj_detalle_tarea.get_detalle_tarea();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return detalle_tareas;
         }
-        public IHttpActionResult get_detalle_tarea()
+        public IEnumerable<detalle_tarea> get_detalle_tarea()
         {
-            return Json(obj_detalle_tarea.get_detalle_tarea());
+            return data();
         }
         public IHttpActionResult get_detalle_tarea(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_detalle_tarea(detalle_tarea obj)
+        [HttpPost]
+        public string insert_detalle_tarea(detalle_tarea obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_detalle_tarea.insert_detalle_tarea(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_detalle_tarea.insert_detalle_tarea(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_detalle_tarea(detalle_tarea obj)
+        [HttpPost]
+        public string update_detalle_tarea(detalle_tarea obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_detalle_tarea.update_detalle_tarea(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_detalle_tarea.update_detalle_tarea(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

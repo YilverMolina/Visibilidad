@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class notificacionController : ApiController
     {
         notificacion obj_notificacion = new notificacion();
+        public DataRow[] allnotificacion()
+        {
+            DataTable dt = obj_notificacion.get_notificacion();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public notificacion[] data()
         {
             DataTable dt = obj_notificacion.get_notificacion();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return notificacions;
         }
-        public IHttpActionResult get_notificacion()
+        public IEnumerable<notificacion> get_notificacion()
         {
-            return Json(obj_notificacion.get_notificacion());
+            return data();
         }
         public IHttpActionResult get_notificacion(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_notificacion(notificacion obj)
+        [HttpPost]
+        public string insert_notificacion(notificacion obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_notificacion.insert_notificacion(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_notificacion.insert_notificacion(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_notificacion(notificacion obj)
+        [HttpPost]
+        public string update_notificacion(notificacion obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_notificacion.update_notificacion(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_notificacion.update_notificacion(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

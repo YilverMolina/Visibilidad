@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class estudiantes_cursosController : ApiController
     {
         estudiantes_cursos obj_estudiantes_cursos = new estudiantes_cursos();
+        public DataRow[] allestudiantes_cursos()
+        {
+            DataTable dt = obj_estudiantes_cursos.get_estudiantes_cursos();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public estudiantes_cursos[] data()
         {
             DataTable dt = obj_estudiantes_cursos.get_estudiantes_cursos();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return estudiantes_cursoss;
         }
-        public IHttpActionResult get_estudiantes_cursos()
+        public IEnumerable<estudiantes_cursos> get_estudiantes_cursos()
         {
-            return Json(obj_estudiantes_cursos.get_estudiantes_cursos());
+            return data();
         }
         public IHttpActionResult get_estudiantes_cursos(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_estudiantes_cursos(estudiantes_cursos obj)
+        [HttpPost]
+        public string insert_estudiantes_cursos(estudiantes_cursos obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_estudiantes_cursos.insert_estudiantes_cursos(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_estudiantes_cursos.insert_estudiantes_cursos(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_estudiantes_cursos(estudiantes_cursos obj)
+        [HttpPost]
+        public string update_estudiantes_cursos(estudiantes_cursos obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_estudiantes_cursos.update_estudiantes_cursos(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_estudiantes_cursos.update_estudiantes_cursos(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

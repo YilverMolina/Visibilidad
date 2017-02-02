@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class adjuntos_tareasController : ApiController
     {
         adjuntos_tareas obj_adjuntos_tareas = new adjuntos_tareas();
+        public DataRow[] alladjuntos_tareas()
+        {
+            DataTable dt = obj_adjuntos_tareas.get_adjuntos_tareas();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public adjuntos_tareas[] data()
         {
             DataTable dt = obj_adjuntos_tareas.get_adjuntos_tareas();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return adjuntos_tareass;
         }
-        public IHttpActionResult get_adjuntos_tareas()
+        public IEnumerable<adjuntos_tareas> get_adjuntos_tareas()
         {
-            return Json(obj_adjuntos_tareas.get_adjuntos_tareas());
+            return data();
         }
         public IHttpActionResult get_adjuntos_tareas(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_adjuntos_tareas(adjuntos_tareas obj)
+        [HttpPost]
+        public string insert_adjuntos_tareas(adjuntos_tareas obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_adjuntos_tareas.insert_adjuntos_tareas(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_adjuntos_tareas.insert_adjuntos_tareas(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_adjuntos_tareas(adjuntos_tareas obj)
+        [HttpPost]
+        public string update_adjuntos_tareas(adjuntos_tareas obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_adjuntos_tareas.update_adjuntos_tareas(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_adjuntos_tareas.update_adjuntos_tareas(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

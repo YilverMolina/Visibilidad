@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class lider_semilleroController : ApiController
     {
         lider_semillero obj_lider_semillero = new lider_semillero();
+        public DataRow[] alllider_semillero()
+        {
+            DataTable dt = obj_lider_semillero.get_lider_semillero();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public lider_semillero[] data()
         {
             DataTable dt = obj_lider_semillero.get_lider_semillero();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return lider_semilleros;
         }
-        public IHttpActionResult get_lider_semillero()
+        public IEnumerable<lider_semillero> get_lider_semillero()
         {
-            return Json(obj_lider_semillero.get_lider_semillero());
+            return data();
         }
         public IHttpActionResult get_lider_semillero(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_lider_semillero(lider_semillero obj)
+        [HttpPost]
+        public string insert_lider_semillero(lider_semillero obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_lider_semillero.insert_lider_semillero(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_lider_semillero.insert_lider_semillero(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_lider_semillero(lider_semillero obj)
+        [HttpPost]
+        public string update_lider_semillero(lider_semillero obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_lider_semillero.update_lider_semillero(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_lider_semillero.update_lider_semillero(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

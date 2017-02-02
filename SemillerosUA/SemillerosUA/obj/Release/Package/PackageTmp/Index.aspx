@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <link rel="shortcut icon" type="image/x-icon" href="public/index/style/images/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="public/images/fondo/UA.gif" />
     <link href="public/index/style/css/bootstrap.css" rel="stylesheet" />
     <link href="public/index/style/css/settings.css" rel="stylesheet" />
     <link href="public/index/style/js/google-code-prettify/prettify.css" rel="stylesheet" />
@@ -25,6 +25,14 @@
     <script src="public/add/angular/controllers/app.js" charset="utf-8"></script>
     <script src="public/add/angular/controllers/controller_menu.js" charset="utf-8"></script>
 
+    <style type="text/css">
+        .stroke {
+            color: white;
+            text-shadow: -2px -2px 0 #3D5229, 2px -2px 0 #3D5229, -2px 2px 0 #3D5229, 2px 2px 0 #3D5229;
+            font-weight: bold;
+        }
+    </style>
+
 </head>
 <body ng-app="UDLA">
     <form id="form1" runat="server">
@@ -32,18 +40,23 @@
             <div id="header" class="navbar navbar-fixed-top">
                 <div class="navbar-inner">
                     <div class="container">
-                        <a class="btn responsive-menu pull-right" data-toggle="collapse" data-target=".nav-collapse"><i class='icon-menu-1'></i></a><a class="brand" href="index.html">
-                            <img src="public/index/style/images/logo.png" alt="" />
+                        <a class="btn responsive-menu pull-right" data-toggle="collapse" data-target=".nav-collapse"><i class='icon-menu-1'></i></a><a class="brand" href="Index.aspx">
+                            <%--<img src="public/index/style/images/logo.png" alt="" />--%>
+
+                            <h1 class="popover-title" style="font-size: 20pt">
+                                <img src="public/images/fondo/UA.png" class="responsive" alt="" />
+                                <b>UNIVERSIDAD DE LA AMAZONIA</b>
+                            </h1>
                         </a>
                         <div class="nav-collapse pull-right collapse">
                             <ul class="nav">
-                                <li class="dropdown"><a href="Index.aspx">Inicio</a>
+                                <li class="dropdown"><a href="Index.aspx">
+                                    <i class="icon-home"></i>
+                                    Inicio</a>
                                 </li>
-                                <li class="dropdown"><a href="#" class="dropdown-toggle js-activated">Noticias</a>
-                                </li>
-                                <li class="dropdown"><a href="#" class="dropdown-toggle js-activated">Calendario</a>
-                                </li>
-                                <li class="dropdown"><a href="Views/Home/Login.aspx" target="_blank">Ingresar</a>
+                                <li class="dropdown"><a href="Views/Home/Login.aspx" target="_blank">
+                                    <i class="icon-signal"></i>
+                                    Ingresar al sistema</a>
                                 </li>
                             </ul>
                         </div>
@@ -54,62 +67,45 @@
             <div class="offset"></div>
             <div class="fullwidthbanner-container revolution">
                 <div class="fullwidthbanner">
-                    <ul>
+                    <ul style="background-color: red">
                         <li data-transition="fade">
-                            <img src="public/images/slider/1.jpg" alt="" />
-                            <div class="caption sfl bold" data-x="center" data-y="200" data-speed="500" data-start="100" data-easing="easeOutExpo">We are a digital & branding agency based in London.</div>
-                            <div class="caption sfr lite" data-x="center" data-y="274" data-speed="500" data-start="900" data-easing="easeOutExpo">We love to turn great ideas into beautiful products.</div>
-                            <div class="caption sfb" data-x="center" data-y="345" data-speed="900" data-start="1600" data-easing="easeOutExpo"><a href="#" class="btn btn-blue btn-large">Get in Touch</a></div>
+                            <img src="public/images/slider/image7.jpg" alt="" />
+                            <div class="caption sfl bold stroke" data-x="center" data-y="200" data-speed="500" data-start="100" data-easing="easeOutExpo">Gestión de eventos de los Semilleros de Investigación</div>
+                            <div class="caption sfr lite" data-x="center" data-y="274" data-speed="500" data-start="900" data-easing="easeOutExpo" style="background-color: rgba(0,0,0,0.8); border-radius: 10px; padding: 10px">Control de asistencias y actividades internas</div>
                         </li>
                         <li data-transition="fade">
-                            <img src="public/images/slider/2.jpg" style="background-color: #323a45;" alt="" />
-                            <div class="caption sfl" data-x="450" data-y="115" data-speed="900" data-start="100" data-easing="easeOutSine">
-                                <img src="public/index/style/images/art/slider-browser.png" alt="" />
-                            </div>
-                            <div class="caption sfl" data-x="800" data-y="180" data-speed="900" data-start="900" data-easing="easeOutSine">
-                                <img src="public/index/style/images/art/slider-tablet.png" alt="" />
-                            </div>
-                            <div class="caption sfl" data-x="980" data-y="290" data-speed="900" data-start="1600" data-easing="easeOutSine">
-                                <img src="public/index/style/images/art/slider-mobile.png" alt="" />
-                            </div>
-                            <div class="caption sfl bold" data-x="35" data-y="180" data-speed="900" data-start="1500" data-easing="easeOutExpo"><strong>We design & build</strong></div>
-                            <div class="caption sfr bold" data-x="35" data-y="240" data-speed="900" data-start="1800" data-easing="easeOutExpo"><strong><span class="color">responsive</span> themes</strong></div>
-                            <div class="caption sfb" data-x="35" data-y="320" data-speed="900" data-start="2100" data-easing="easeOutExpo"><a href="#" class="btn btn-green btn-large">Get in Touch</a></div>
+                            <img src="public/images/slider/image2.jpg" alt="" />
+                            <div class="caption sfl bold stroke" data-x="center" data-y="200" data-speed="500" data-start="100" data-easing="easeOutExpo">Gestión de eventos de los Semilleros de Investigación</div>
+                            <div class="caption sfr lite" data-x="center" data-y="274" data-speed="500" data-start="900" data-easing="easeOutExpo" style="background-color: rgba(0,0,0,0.8); border-radius: 10px; padding: 10px">Control de asistencias y actividades internas</div>
                         </li>
                         <li data-transition="fade">
-                            <img src="public/images/slider/3.jpg" alt="" />
-                            <div class="caption sft" data-x="50" data-y="115" data-speed="900" data-start="100" data-easing="easeOutSine">
-                                <img src="public/index/style/images/art/slider-back.png" alt="" />
-                            </div>
-                            <div class="caption fade" data-x="35" data-y="465" data-speed="900" data-start="120" data-easing="easeOutSine">
-                                <img src="public/index/style/images/art/slider-shadow.png" alt="" />
-                            </div>
-                            <div class="caption sft" data-x="35" data-y="122" data-speed="900" data-start="800" data-easing="easeOutSine">
-                                <img src="public/index/style/images/art/slider-middle.png" alt="" />
-                            </div>
-                            <div class="caption sft" data-x="60" data-y="130" data-speed="900" data-start="1300" data-easing="easeOutSine">
-                                <img src="public/index/style/images/art/slider-first.png" alt="" />
-                            </div>
-                            <div class="caption sft bold" data-x="590" data-y="200" data-speed="900" data-start="2000" data-easing="easeOutExpo">Showcase your business</div>
-                            <div class="caption sfr bold" data-x="590" data-y="265" data-speed="900" data-start="2500" data-easing="easeOutExpo">with editable PSD mockups</div>
-                            <div class="caption sfb" data-x="590" data-y="340" data-speed="900" data-start="3000" data-easing="easeOutExpo"><a href="#" class="btn btn-blue btn-large">Purchase Now</a></div>
+                            <img src="public/images/slider/image3.jpg" alt="" />
+                            <div class="caption sfl bold stroke" data-x="center" data-y="200" data-speed="500" data-start="100" data-easing="easeOutExpo">Gestión de eventos de los Semilleros de Investigación</div>
+                            <div class="caption sfr lite" data-x="center" data-y="274" data-speed="500" data-start="900" data-easing="easeOutExpo" style="background-color: rgba(0,0,0,0.8); border-radius: 10px; padding: 10px">Control de asistencias y actividades internas</div>
                         </li>
                         <li data-transition="fade">
-                            <img src="public/images/slider/4.jpg" style="background-color: #666361;" alt="" />
-                            <div class="caption lfr" data-x="750" data-y="115" data-speed="900" data-start="100" data-easing="easeOutSine">
-                                <img src="public/index/style/images/art/slider-coffee-cup.png" alt="" />
-                            </div>
-                            <div class="caption sfl bold" data-x="35" data-y="200" data-speed="900" data-start="1000" data-easing="easeOutExpo">Just sit and relax</div>
-                            <div class="caption sfl lite" data-x="35" data-y="265" data-speed="900" data-start="1500" data-easing="easeOutExpo">while we take care of your business</div>
-                            <div class="caption sfl" data-x="35" data-y="340" data-speed="900" data-start="2000" data-easing="easeOutExpo"><a href="#" class="btn btn-green btn-large">See Pricing</a></div>
+                            <img src="public/images/slider/image4.jpg" alt="" />
+                            <div class="caption sfl bold stroke" data-x="center" data-y="200" data-speed="500" data-start="100" data-easing="easeOutExpo">Gestión de eventos de los Semilleros de Investigación</div>
+                            <div class="caption sfr lite" data-x="center" data-y="274" data-speed="500" data-start="900" data-easing="easeOutExpo" style="background-color: rgba(0,0,0,0.8); border-radius: 10px; padding: 10px">Control de asistencias y actividades internas</div>
                         </li>
+                        <li data-transition="fade">
+                            <img src="public/images/slider/image5.jpg" alt="" />
+                            <div class="caption sfl bold stroke" data-x="center" data-y="200" data-speed="500" data-start="100" data-easing="easeOutExpo">Gestión de eventos de los Semilleros de Investigación</div>
+                            <div class="caption sfr lite" data-x="center" data-y="274" data-speed="500" data-start="900" data-easing="easeOutExpo" style="background-color: rgba(0,0,0,0.8); border-radius: 10px; padding: 10px">Control de asistencias y actividades internas</div>
+                        </li>
+                        <li data-transition="fade">
+                            <img src="public/images/slider/image6.jpg" alt="" />
+                            <div class="caption sfl bold stroke" data-x="center" data-y="200" data-speed="500" data-start="100" data-easing="easeOutExpo">Gestión de eventos de los Semilleros de Investigación</div>
+                            <div class="caption sfr lite" data-x="center" data-y="274" data-speed="500" data-start="900" data-easing="easeOutExpo" style="background-color: rgba(0,0,0,0.8); border-radius: 10px; padding: 10px">Control de asistencias y actividades internas</div>
+                        </li>
+                       
                     </ul>
                     <div class="tp-bannertimer tp-bottom"></div>
                 </div>
             </div>
 
             <div class="container inner">
-                <div class="row services">
+                <%--<div class="row services">
                     <div class="span3">
                         <div class="icon-wrapper purple">
                             <div class="icon">
@@ -147,50 +143,10 @@
                         <h4>Award Winning</h4>
                         <p>Aenean eu leo quam. Pellente ornare sem lacinia quam venenatis vestibulum sagittis. Nullam quis risus eget urna.</p>
                     </div>
-                </div>
-                <hr />
-                <%--<div class="row services" ng-init="getRoles()">
-                    <div class="span3" ng-repeat="l in listRoles">
-                        <div class="icon-wrapper purple">
-                            <div class="icon">
-                                <img src="public/index/style/images/icon/icon-lamp.png" alt="" />
-                            </div>
-                        </div>
-                        <h4>{{l.NombreRol}}</h4>
-                    </div>
                 </div>--%>
-                <div class="row services">
 
+                <div class="row services">
                     <div class="flats row text-center">
-                        <div class="span4"></div>
-                        <div class="span1">
-                            <div class="icon-wrapper red">
-                                <div class="icon">
-                                    <img src="public/index/style/images/icon/icon-monitor.png" alt="" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="span1">
-                            <div class="icon-wrapper blue">
-                                <div class="icon">
-                                    <img src="public/index/style/images/icon/icon-tube2.png" alt="" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="span1">
-                            <div class="icon-wrapper yellow">
-                                <div class="icon">
-                                    <img src="public/index/style/images/icon/icon-leaf.png" alt="" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="span1">
-                            <div class="icon-wrapper green">
-                                <div class="icon">
-                                    <img src="public/index/style/images/icon/icon-portfolio3.png" alt="" />
-                                </div>
-                            </div>
-                        </div>
                         <div class="span12">
                             <h1>Semilleros de Investigación Universidad de la Amazonia</h1>
                             <%--<p class="lead">Semilleros registrados en nuestra Plataforma.</p>--%>
@@ -348,72 +304,6 @@
                                 <li><a href="#"><i class="icon-s-twitter"></i></a></li>
                                 <li><a href="#"><i class="icon-s-facebook"></i></a></li>
                                 <li><a href="#"><i class="icon-s-pinterest"></i></a></li>
-                            </ul>
-                        </div>
-                        <br />
-                    </div>
-                    <div class="span4">
-                        <figure class="media-wrapper">
-                            <img src="public/index/style/images/art/team2.jpg" alt="" />
-                        </figure>
-                        <div class="details">
-                            <h4>Milher Tovar Rubiando<span>Colaborador GIECOM</span></h4>
-                            <p>
-                                Ingeniero Mecatrónico, graduado de la Universidad Nacional de Colombia y 
-                                actualmente docente e investigador en la Universidad de la Amazonia.
-                            </p>
-                            <ul class="social">
-                                <li><a href="#"><i class="icon-s-twitter"></i></a></li>
-                                <li><a href="#"><i class="icon-s-facebook"></i></a></li>
-                                <li><a href="#"><i class="icon-s-linkedin"></i></a></li>
-                            </ul>
-                        </div>
-                        <br />
-                    </div>
-                    <div class="span4">
-                        <figure class="media-wrapper">
-                            <img src="public/index/style/images/art/team3.jpg" alt="" />
-                        </figure>
-                        <div class="details">
-                            <h4>Diana Espinosa Sarmiento<span>Colaboradora GIECOM</span></h4>
-                            <p>
-                                Ingeniera de Sistemas, graduada de la Universidad Industrial de Santander y 
-                                actualmente docente e investigadora en la Universidad de la Amazonia.
-                            </p>
-                            <ul class="social">
-                                <li><a href="#"><i class="icon-s-twitter"></i></a></li>
-                                <li><a href="#"><i class="icon-s-facebook"></i></a></li>
-                                <li><a href="#"><i class="icon-s-dribbble"></i></a></li>
-                            </ul>
-                        </div>
-                        <br />
-                    </div>
-                    <div class="span4">
-                        <figure class="media-wrapper">
-                            <img src="public/index/style/images/art/team3.jpg" alt="" />
-                        </figure>
-                        <div class="details">
-                            <h4>Yilver Molina Hurtatiz<span>Participante GIECOM</span></h4>
-                            <p>Estudiante Ingeniería de Sistemas e investigador en la Universidad de la Amazonia.</p>
-                            <ul class="social">
-                                <li><a href="#"><i class="icon-s-twitter"></i></a></li>
-                                <li><a href="#"><i class="icon-s-facebook"></i></a></li>
-                                <li><a href="#"><i class="icon-s-dribbble"></i></a></li>
-                            </ul>
-                        </div>
-                        <br />
-                    </div>
-                    <div class="span4">
-                        <figure class="media-wrapper">
-                            <img src="public/index/style/images/art/team3.jpg" alt="" />
-                        </figure>
-                        <div class="details">
-                            <h4>Julián Mora Ramos<span>Participante GIECOM</span></h4>
-                            <p>Estudiante Ingeniería de Sistemas e investigador en la Universidad de la Amazonia.</p>
-                            <ul class="social">
-                                <li><a href="#"><i class="icon-s-twitter"></i></a></li>
-                                <li><a href="#"><i class="icon-s-facebook"></i></a></li>
-                                <li><a href="#"><i class="icon-s-dribbble"></i></a></li>
                             </ul>
                         </div>
                         <br />

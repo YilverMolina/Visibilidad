@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class grupoController : ApiController
     {
         grupo obj_grupo = new grupo();
+        public DataRow[] allgrupo()
+        {
+            DataTable dt = obj_grupo.get_grupo();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public grupo[] data()
         {
             DataTable dt = obj_grupo.get_grupo();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return grupos;
         }
-        public IHttpActionResult get_grupo()
+        public IEnumerable<grupo> get_grupo()
         {
-            return Json(obj_grupo.get_grupo());
+            return data();
         }
         public IHttpActionResult get_grupo(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_grupo(grupo obj)
+        [HttpPost]
+        public string insert_grupo(grupo obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_grupo.insert_grupo(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_grupo.insert_grupo(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_grupo(grupo obj)
+        [HttpPost]
+        public string update_grupo(grupo obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_grupo.update_grupo(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_grupo.update_grupo(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

@@ -40,7 +40,7 @@
             <div id="header" class="navbar navbar-fixed-top">
                 <div class="navbar-inner">
                     <div class="container">
-                        <a class="btn responsive-menu pull-right" data-toggle="collapse" data-target=".nav-collapse"><i class='icon-menu-1'></i></a><a class="brand" href="index.html">
+                        <a class="btn responsive-menu pull-right" data-toggle="collapse" data-target=".nav-collapse"><i class='icon-menu-1'></i></a><a class="brand" href="Index.aspx">
                             <img src="public/index/style/images/logo.png" alt="" />
                             <%--<h2>Universidad de la Amazonia</h2>--%>
                         </a>

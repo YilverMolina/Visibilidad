@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class eventoController : ApiController
     {
         evento obj_evento = new evento();
+        public DataRow[] allevento()
+        {
+            DataTable dt = obj_evento.get_evento();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public evento[] data()
         {
             DataTable dt = obj_evento.get_evento();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return eventos;
         }
-        public IHttpActionResult get_evento()
+        public IEnumerable<evento> get_evento()
         {
-            return Json(obj_evento.get_evento());
+            return data();
         }
         public IHttpActionResult get_evento(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_evento(evento obj)
+        [HttpPost]
+        public string insert_evento(evento obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_evento.insert_evento(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_evento.insert_evento(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_evento(evento obj)
+        [HttpPost]
+        public string update_evento(evento obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_evento.update_evento(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_evento.update_evento(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class competenciaController : ApiController
     {
         competencia obj_competencia = new competencia();
+        public DataRow[] allcompetencia()
+        {
+            DataTable dt = obj_competencia.get_competencia();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public competencia[] data()
         {
             DataTable dt = obj_competencia.get_competencia();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return competencias;
         }
-        public IHttpActionResult get_competencia()
+        public IEnumerable<competencia> get_competencia()
         {
-            return Json(obj_competencia.get_competencia());
+            return data();
         }
         public IHttpActionResult get_competencia(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_competencia(competencia obj)
+        [HttpPost]
+        public string insert_competencia(competencia obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_competencia.insert_competencia(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_competencia.insert_competencia(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_competencia(competencia obj)
+        [HttpPost]
+        public string update_competencia(competencia obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_competencia.update_competencia(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_competencia.update_competencia(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

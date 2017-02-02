@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class correos_enviadosController : ApiController
     {
         correos_enviados obj_correos_enviados = new correos_enviados();
+        public DataRow[] allcorreos_enviados()
+        {
+            DataTable dt = obj_correos_enviados.get_correos_enviados();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public correos_enviados[] data()
         {
             DataTable dt = obj_correos_enviados.get_correos_enviados();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return correos_enviadoss;
         }
-        public IHttpActionResult get_correos_enviados()
+        public IEnumerable<correos_enviados> get_correos_enviados()
         {
-            return Json(obj_correos_enviados.get_correos_enviados());
+            return data();
         }
         public IHttpActionResult get_correos_enviados(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_correos_enviados(correos_enviados obj)
+        [HttpPost]
+        public string insert_correos_enviados(correos_enviados obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_correos_enviados.insert_correos_enviados(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_correos_enviados.insert_correos_enviados(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_correos_enviados(correos_enviados obj)
+        [HttpPost]
+        public string update_correos_enviados(correos_enviados obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_correos_enviados.update_correos_enviados(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_correos_enviados.update_correos_enviados(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

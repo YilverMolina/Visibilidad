@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword />
-    <_PublishTargetUrl>ftp://172.16.31.150/semilleros</_PublishTargetUrl>
+    <_PublishTargetUrl>ftp://200.21.7.94/semilleros</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -16,12 +16,6 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/ApplicationInsights.config">
       <publishTime>06/21/2016 08:51:45</publishTime>
     </File>
-    <File Include="bin/EntityFramework.dll">
-      <publishTime>03/02/2015 09:32:26</publishTime>
-    </File>
-    <File Include="bin/EntityFramework.SqlServer.dll">
-      <publishTime>03/02/2015 09:32:26</publishTime>
-    </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>08/06/2015 12:16:50</publishTime>
     </File>
@@ -29,7 +23,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/29/2015 20:45:38</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/29/2015 20:58:00</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
       <publishTime>10/29/2015 20:49:14</publishTime>
@@ -92,7 +86,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/18/2015 20:19:46</publishTime>
     </File>
     <File Include="bin/SemillerosUA.dll">
-      <publishTime>09/07/2016 17:43:11</publishTime>
+      <publishTime>01/26/2017 10:26:59</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>01/28/2015 04:02:42</publishTime>
@@ -113,13 +107,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/21/2016 08:51:19</publishTime>
     </File>
     <File Include="Index.aspx">
-      <publishTime>07/09/2016 10:30:15</publishTime>
+      <publishTime>01/26/2017 09:10:19</publishTime>
     </File>
     <File Include="json.json">
       <publishTime>07/31/2016 18:54:14</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>09/07/2016 16:41:20</publishTime>
+      <publishTime>06/21/2016 08:51:46</publishTime>
     </File>
     <File Include="public/content/.gitignore">
       <publishTime>06/21/2016 09:00:26</publishTime>
@@ -326,7 +320,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/21/2016 08:51:46</publishTime>
     </File>
     <File Include="Semilleros.aspx">
-      <publishTime>07/31/2016 20:52:07</publishTime>
+      <publishTime>01/24/2017 18:25:25</publishTime>
     </File>
     <File Include="Views/Competencias/Gestionar.aspx">
       <publishTime>07/29/2016 23:08:08</publishTime>
@@ -335,7 +329,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/29/2016 20:35:35</publishTime>
     </File>
     <File Include="Views/Competencias/Historial.aspx">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/29/2016 20:36:00</publishTime>
     </File>
     <File Include="Views/Competencias/Inscripciones.aspx">
       <publishTime>07/29/2016 23:11:18</publishTime>
@@ -380,7 +374,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/29/2016 20:44:11</publishTime>
     </File>
     <File Include="Views/Shared/MasterPage.Master">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/29/2016 23:40:00</publishTime>
     </File>
     <File Include="Views/Tareas/Asignar.aspx">
       <publishTime>07/29/2016 20:39:38</publishTime>
@@ -404,7 +398,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/29/2016 23:33:25</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/07/2016 17:43:21</publishTime>
+      <publishTime>01/26/2017 10:27:01</publishTime>
     </File>
   </ItemGroup>
 </Project>

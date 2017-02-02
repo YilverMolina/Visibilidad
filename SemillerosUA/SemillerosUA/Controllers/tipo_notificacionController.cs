@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class tipo_notificacionController : ApiController
     {
         tipo_notificacion obj_tipo_notificacion = new tipo_notificacion();
+        public DataRow[] alltipo_notificacion()
+        {
+            DataTable dt = obj_tipo_notificacion.get_tipo_notificacion();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public tipo_notificacion[] data()
         {
             DataTable dt = obj_tipo_notificacion.get_tipo_notificacion();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return tipo_notificacions;
         }
-        public IHttpActionResult get_tipo_notificacion()
+        public IEnumerable<tipo_notificacion> get_tipo_notificacion()
         {
-            return Json(obj_tipo_notificacion.get_tipo_notificacion());
+            return data();
         }
         public IHttpActionResult get_tipo_notificacion(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_tipo_notificacion(tipo_notificacion obj)
+        [HttpPost]
+        public string insert_tipo_notificacion(tipo_notificacion obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_tipo_notificacion.insert_tipo_notificacion(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_tipo_notificacion.insert_tipo_notificacion(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_tipo_notificacion(tipo_notificacion obj)
+        [HttpPost]
+        public string update_tipo_notificacion(tipo_notificacion obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_tipo_notificacion.update_tipo_notificacion(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_tipo_notificacion.update_tipo_notificacion(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

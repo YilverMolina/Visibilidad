@@ -40,25 +40,11 @@ namespace SemillerosUA.Models.Clases
             this.smlr_idsemillero = smlr_idsemillero;
         }
 
-        //SELECT
         public DataTable get_cursos()
         {
             return conexion.realizarConsulta("PR_SELECT_CURSOS ", "CR_RESULT ", null);
         }
 
-        public DataTable get_cursos_por_usuario()
-        {
-            return conexion.realizarConsulta("PR_SELECT_CURSOS ", "CR_RESULT ", null);
-        }
-
-        public DataTable get_cursos_activos(cursos obj)
-        {
-            Parametro[] param = new Parametro[1];
-            param[0] = new Parametro("CURS_ESTADO", obj.curs_estado);
-            return conexion.realizarConsulta("PR_SELECT_CURSOS ", "CR_RESULT ", param);
-        }
-
-        //TRANSACTIONS
         public Parametro[] getParameters(cursos obj)
         {
             Parametro[] param = new Parametro[12];
@@ -90,5 +76,6 @@ namespace SemillerosUA.Models.Clases
             list[0] = new Transaction("PR_UPDATE_CURSOS", getParameters(obj));
             return conexion.realizarTransaccion(list);
         }
+
     }
 }

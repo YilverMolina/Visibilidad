@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class grupo_investigacionController : ApiController
     {
         grupo_investigacion obj_grupo_investigacion = new grupo_investigacion();
+        public DataRow[] allgrupo_investigacion()
+        {
+            DataTable dt = obj_grupo_investigacion.get_grupo_investigacion();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public grupo_investigacion[] data()
         {
             DataTable dt = obj_grupo_investigacion.get_grupo_investigacion();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return grupo_investigacions;
         }
-        public IHttpActionResult get_grupo_investigacion()
+        public IEnumerable<grupo_investigacion> get_grupo_investigacion()
         {
-            return Json(obj_grupo_investigacion.get_grupo_investigacion());
+            return data();
         }
         public IHttpActionResult get_grupo_investigacion(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_grupo_investigacion(grupo_investigacion obj)
+        [HttpPost]
+        public string insert_grupo_investigacion(grupo_investigacion obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_grupo_investigacion.insert_grupo_investigacion(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_grupo_investigacion.insert_grupo_investigacion(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_grupo_investigacion(grupo_investigacion obj)
+        [HttpPost]
+        public string update_grupo_investigacion(grupo_investigacion obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_grupo_investigacion.update_grupo_investigacion(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_grupo_investigacion.update_grupo_investigacion(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

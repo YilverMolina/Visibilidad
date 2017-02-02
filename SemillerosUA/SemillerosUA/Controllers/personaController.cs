@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class personaController : ApiController
     {
         persona obj_persona = new persona();
+        public DataRow[] allpersona()
+        {
+            DataTable dt = obj_persona.get_persona();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public persona[] data()
         {
             DataTable dt = obj_persona.get_persona();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return personas;
         }
-        public IHttpActionResult get_persona()
+        public IEnumerable<persona> get_persona()
         {
-            return Json(obj_persona.get_persona());
+            return data();
         }
         public IHttpActionResult get_persona(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_persona(persona obj)
+        [HttpPost]
+        public string insert_persona(persona obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_persona.insert_persona(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_persona.insert_persona(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_persona(persona obj)
+        [HttpPost]
+        public string update_persona(persona obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_persona.update_persona(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_persona.update_persona(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

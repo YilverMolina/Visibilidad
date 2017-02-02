@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class subpermisosController : ApiController
     {
         subpermisos obj_subpermisos = new subpermisos();
+        public DataRow[] allsubpermisos()
+        {
+            DataTable dt = obj_subpermisos.get_subpermisos();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public subpermisos[] data()
         {
             DataTable dt = obj_subpermisos.get_subpermisos();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return subpermisoss;
         }
-        public IHttpActionResult get_subpermisos()
+        public IEnumerable<subpermisos> get_subpermisos()
         {
-            return Json(obj_subpermisos.get_subpermisos());
+            return data();
         }
         public IHttpActionResult get_subpermisos(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_subpermisos(subpermisos obj)
+        [HttpPost]
+        public string insert_subpermisos(subpermisos obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_subpermisos.insert_subpermisos(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_subpermisos.insert_subpermisos(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_subpermisos(subpermisos obj)
+        [HttpPost]
+        public string update_subpermisos(subpermisos obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_subpermisos.update_subpermisos(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_subpermisos.update_subpermisos(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

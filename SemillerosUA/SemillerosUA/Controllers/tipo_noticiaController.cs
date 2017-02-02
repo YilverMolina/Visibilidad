@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class tipo_noticiaController : ApiController
     {
         tipo_noticia obj_tipo_noticia = new tipo_noticia();
+        public DataRow[] alltipo_noticia()
+        {
+            DataTable dt = obj_tipo_noticia.get_tipo_noticia();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public tipo_noticia[] data()
         {
             DataTable dt = obj_tipo_noticia.get_tipo_noticia();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return tipo_noticias;
         }
-        public IHttpActionResult get_tipo_noticia()
+        public IEnumerable<tipo_noticia> get_tipo_noticia()
         {
-            return Json(obj_tipo_noticia.get_tipo_noticia());
+            return data();
         }
         public IHttpActionResult get_tipo_noticia(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_tipo_noticia(tipo_noticia obj)
+        [HttpPost]
+        public string insert_tipo_noticia(tipo_noticia obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_tipo_noticia.insert_tipo_noticia(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_tipo_noticia.insert_tipo_noticia(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_tipo_noticia(tipo_noticia obj)
+        [HttpPost]
+        public string update_tipo_noticia(tipo_noticia obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_tipo_noticia.update_tipo_noticia(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_tipo_noticia.update_tipo_noticia(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

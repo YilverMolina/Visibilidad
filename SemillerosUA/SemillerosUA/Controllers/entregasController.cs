@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class entregasController : ApiController
     {
         entregas obj_entregas = new entregas();
+        public DataRow[] allentregas()
+        {
+            DataTable dt = obj_entregas.get_entregas();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public entregas[] data()
         {
             DataTable dt = obj_entregas.get_entregas();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return entregass;
         }
-        public IHttpActionResult get_entregas()
+        public IEnumerable<entregas> get_entregas()
         {
-            return Json(obj_entregas.get_entregas());
+            return data();
         }
         public IHttpActionResult get_entregas(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_entregas(entregas obj)
+        [HttpPost]
+        public string insert_entregas(entregas obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_entregas.insert_entregas(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_entregas.insert_entregas(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_entregas(entregas obj)
+        [HttpPost]
+        public string update_entregas(entregas obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_entregas.update_entregas(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_entregas.update_entregas(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

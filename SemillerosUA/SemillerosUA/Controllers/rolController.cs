@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class rolController : ApiController
     {
         rol obj_rol = new rol();
+        public DataRow[] allrol()
+        {
+            DataTable dt = obj_rol.get_rol();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public rol[] data()
         {
             DataTable dt = obj_rol.get_rol();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return rols;
         }
-        public IHttpActionResult get_rol()
+        public IEnumerable<rol> get_rol()
         {
-            return Json(obj_rol.get_rol());
+            return data();
         }
         public IHttpActionResult get_rol(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_rol(rol obj)
+        [HttpPost]
+        public string insert_rol(rol obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_rol.insert_rol(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_rol.insert_rol(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_rol(rol obj)
+        [HttpPost]
+        public string update_rol(rol obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_rol.update_rol(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_rol.update_rol(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

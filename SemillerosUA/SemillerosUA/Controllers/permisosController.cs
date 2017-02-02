@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class permisosController : ApiController
     {
         permisos obj_permisos = new permisos();
+        public DataRow[] allpermisos()
+        {
+            DataTable dt = obj_permisos.get_permisos();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public permisos[] data()
         {
             DataTable dt = obj_permisos.get_permisos();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return permisoss;
         }
-        public IHttpActionResult get_permisos()
+        public IEnumerable<permisos> get_permisos()
         {
-            return Json(obj_permisos.get_permisos());
+            return data();
         }
         public IHttpActionResult get_permisos(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_permisos(permisos obj)
+        [HttpPost]
+        public string insert_permisos(permisos obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_permisos.insert_permisos(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_permisos.insert_permisos(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_permisos(permisos obj)
+        [HttpPost]
+        public string update_permisos(permisos obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_permisos.update_permisos(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_permisos.update_permisos(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

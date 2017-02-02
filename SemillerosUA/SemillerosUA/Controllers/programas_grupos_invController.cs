@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class programas_grupos_invController : ApiController
     {
         programas_grupos_inv obj_programas_grupos_inv = new programas_grupos_inv();
+        public DataRow[] allprogramas_grupos_inv()
+        {
+            DataTable dt = obj_programas_grupos_inv.get_programas_grupos_inv();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public programas_grupos_inv[] data()
         {
             DataTable dt = obj_programas_grupos_inv.get_programas_grupos_inv();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return programas_grupos_invs;
         }
-        public IHttpActionResult get_programas_grupos_inv()
+        public IEnumerable<programas_grupos_inv> get_programas_grupos_inv()
         {
-            return Json(obj_programas_grupos_inv.get_programas_grupos_inv());
+            return data();
         }
         public IHttpActionResult get_programas_grupos_inv(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_programas_grupos_inv(programas_grupos_inv obj)
+        [HttpPost]
+        public string insert_programas_grupos_inv(programas_grupos_inv obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_programas_grupos_inv.insert_programas_grupos_inv(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_programas_grupos_inv.insert_programas_grupos_inv(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_programas_grupos_inv(programas_grupos_inv obj)
+        [HttpPost]
+        public string update_programas_grupos_inv(programas_grupos_inv obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_programas_grupos_inv.update_programas_grupos_inv(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_programas_grupos_inv.update_programas_grupos_inv(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

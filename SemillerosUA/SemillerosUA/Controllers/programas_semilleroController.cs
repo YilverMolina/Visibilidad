@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class programas_semilleroController : ApiController
     {
         programas_semillero obj_programas_semillero = new programas_semillero();
+        public DataRow[] allprogramas_semillero()
+        {
+            DataTable dt = obj_programas_semillero.get_programas_semillero();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public programas_semillero[] data()
         {
             DataTable dt = obj_programas_semillero.get_programas_semillero();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return programas_semilleros;
         }
-        public IHttpActionResult get_programas_semillero()
+        public IEnumerable<programas_semillero> get_programas_semillero()
         {
-            return Json(obj_programas_semillero.get_programas_semillero());
+            return data();
         }
         public IHttpActionResult get_programas_semillero(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_programas_semillero(programas_semillero obj)
+        [HttpPost]
+        public string insert_programas_semillero(programas_semillero obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_programas_semillero.insert_programas_semillero(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_programas_semillero.insert_programas_semillero(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_programas_semillero(programas_semillero obj)
+        [HttpPost]
+        public string update_programas_semillero(programas_semillero obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_programas_semillero.update_programas_semillero(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_programas_semillero.update_programas_semillero(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

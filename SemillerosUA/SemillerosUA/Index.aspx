@@ -4,12 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Inicio | Semilleros UDLA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <link rel="shortcut icon" type="image/x-icon" href="public/index/style/images/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="public/images/fondo/UA.gif" />
     <link href="public/index/style/css/bootstrap.css" rel="stylesheet" />
     <link href="public/index/style/css/settings.css" rel="stylesheet" />
     <link href="public/index/style/js/google-code-prettify/prettify.css" rel="stylesheet" />
@@ -25,6 +25,14 @@
     <script src="public/add/angular/controllers/app.js" charset="utf-8"></script>
     <script src="public/add/angular/controllers/controller_menu.js" charset="utf-8"></script>
 
+    <style type="text/css">
+        .stroke {
+            color: white;
+            text-shadow: -2px -2px 0 #3D5229, 2px -2px 0 #3D5229, -2px 2px 0 #3D5229, 2px 2px 0 #3D5229;
+            font-weight: bold;
+        }
+    </style>
+
 </head>
 <body ng-app="UDLA">
     <form id="form1" runat="server">
@@ -32,18 +40,23 @@
             <div id="header" class="navbar navbar-fixed-top">
                 <div class="navbar-inner">
                     <div class="container">
-                        <a class="btn responsive-menu pull-right" data-toggle="collapse" data-target=".nav-collapse"><i class='icon-menu-1'></i></a><a class="brand" href="index.html">
-                            <img src="public/index/style/images/logo.png" alt="" />
+                        <a class="btn responsive-menu pull-right" data-toggle="collapse" data-target=".nav-collapse"><i class='icon-menu-1'></i></a><a class="brand" href="Index.aspx">
+                            <%--<img src="public/index/style/images/logo.png" alt="" />--%>
+
+                            <h1 style="font-size: 20pt">
+                                <img src="public/images/fondo/UA.png" class="responsive" alt="" />
+                                <b>UNIVERSIDAD DE LA AMAZONIA</b>
+                            </h1>
                         </a>
                         <div class="nav-collapse pull-right collapse">
                             <ul class="nav">
-                                <li class="dropdown"><a href="Index.aspx">Inicio</a>
+                                <li class="dropdown"><a class="btn btn-warning" href="Index.aspx">
+                                    <i class="icon-home"></i>
+                                    Inicio</a>
                                 </li>
-                                <li class="dropdown"><a href="#" class="dropdown-toggle js-activated">Noticias</a>
-                                </li>
-                                <li class="dropdown"><a href="#" class="dropdown-toggle js-activated">Calendario</a>
-                                </li>
-                                <li class="dropdown"><a href="Views/Home/Login.aspx" target="_blank">Ingresar</a>
+                                <li class="dropdown"><a href="Views/Home/Login.aspx" class="btn btn-warning" target="_blank">
+                                    <i class="icon-login"></i>
+                                    Ingresar al sistema</a>
                                 </li>
                             </ul>
                         </div>
@@ -54,451 +67,305 @@
             <div class="offset"></div>
             <div class="fullwidthbanner-container revolution">
                 <div class="fullwidthbanner">
-                    <ul>
+                    <ul style="background-color: red">
                         <li data-transition="fade">
-                            <img src="public/images/slider/1.jpg" alt="" />
-                            <div class="caption sfl bold" data-x="center" data-y="200" data-speed="500" data-start="100" data-easing="easeOutExpo">We are a digital & branding agency based in London.</div>
-                            <div class="caption sfr lite" data-x="center" data-y="274" data-speed="500" data-start="900" data-easing="easeOutExpo">We love to turn great ideas into beautiful products.</div>
-                            <div class="caption sfb" data-x="center" data-y="345" data-speed="900" data-start="1600" data-easing="easeOutExpo"><a href="#" class="btn btn-blue btn-large">Get in Touch</a></div>
+                            <img src="public/images/slider/image7.jpg" alt="" />
+                            <div class="caption sfl bold stroke" data-x="center" data-y="200" data-speed="500" data-start="100" data-easing="easeOutExpo">Gestión de eventos de los Semilleros de Investigación</div>
+                            <div class="caption sfr lite" data-x="center" data-y="274" data-speed="500" data-start="900" data-easing="easeOutExpo" style="background-color: rgba(0,0,0,0.8); border-radius: 10px; padding: 10px">Control de asistencias y actividades internas</div>
                         </li>
                         <li data-transition="fade">
-                            <img src="public/images/slider/2.jpg" style="background-color: #323a45;" alt="" />
-                            <div class="caption sfl" data-x="450" data-y="115" data-speed="900" data-start="100" data-easing="easeOutSine">
-                                <img src="public/index/style/images/art/slider-browser.png" alt="" />
-                            </div>
-                            <div class="caption sfl" data-x="800" data-y="180" data-speed="900" data-start="900" data-easing="easeOutSine">
-                                <img src="public/index/style/images/art/slider-tablet.png" alt="" />
-                            </div>
-                            <div class="caption sfl" data-x="980" data-y="290" data-speed="900" data-start="1600" data-easing="easeOutSine">
-                                <img src="public/index/style/images/art/slider-mobile.png" alt="" />
-                            </div>
-                            <div class="caption sfl bold" data-x="35" data-y="180" data-speed="900" data-start="1500" data-easing="easeOutExpo"><strong>We design & build</strong></div>
-                            <div class="caption sfr bold" data-x="35" data-y="240" data-speed="900" data-start="1800" data-easing="easeOutExpo"><strong><span class="color">responsive</span> themes</strong></div>
-                            <div class="caption sfb" data-x="35" data-y="320" data-speed="900" data-start="2100" data-easing="easeOutExpo"><a href="#" class="btn btn-green btn-large">Get in Touch</a></div>
+                            <img src="public/images/slider/image2.jpg" alt="" />
+                            <div class="caption sfl bold stroke" data-x="center" data-y="200" data-speed="500" data-start="100" data-easing="easeOutExpo">Gestión de competencias de los Semilleros de Investigación</div>
+                            <div class="caption sfr lite" data-x="center" data-y="274" data-speed="500" data-start="900" data-easing="easeOutExpo" style="background-color: rgba(0,0,0,0.8); border-radius: 10px; padding: 10px">Control de asistencias y actividades internas</div>
                         </li>
                         <li data-transition="fade">
-                            <img src="public/images/slider/3.jpg" alt="" />
-                            <div class="caption sft" data-x="50" data-y="115" data-speed="900" data-start="100" data-easing="easeOutSine">
-                                <img src="public/index/style/images/art/slider-back.png" alt="" />
-                            </div>
-                            <div class="caption fade" data-x="35" data-y="465" data-speed="900" data-start="120" data-easing="easeOutSine">
-                                <img src="public/index/style/images/art/slider-shadow.png" alt="" />
-                            </div>
-                            <div class="caption sft" data-x="35" data-y="122" data-speed="900" data-start="800" data-easing="easeOutSine">
-                                <img src="public/index/style/images/art/slider-middle.png" alt="" />
-                            </div>
-                            <div class="caption sft" data-x="60" data-y="130" data-speed="900" data-start="1300" data-easing="easeOutSine">
-                                <img src="public/index/style/images/art/slider-first.png" alt="" />
-                            </div>
-                            <div class="caption sft bold" data-x="590" data-y="200" data-speed="900" data-start="2000" data-easing="easeOutExpo">Showcase your business</div>
-                            <div class="caption sfr bold" data-x="590" data-y="265" data-speed="900" data-start="2500" data-easing="easeOutExpo">with editable PSD mockups</div>
-                            <div class="caption sfb" data-x="590" data-y="340" data-speed="900" data-start="3000" data-easing="easeOutExpo"><a href="#" class="btn btn-blue btn-large">Purchase Now</a></div>
+                            <img src="public/images/slider/image3.jpg" alt="" />
+                            <div class="caption sfl bold stroke" data-x="center" data-y="200" data-speed="500" data-start="100" data-easing="easeOutExpo">Gestión de cursos de los Semilleros de Investigación</div>
+                            <div class="caption sfr lite" data-x="center" data-y="274" data-speed="500" data-start="900" data-easing="easeOutExpo" style="background-color: rgba(0,0,0,0.8); border-radius: 10px; padding: 10px">Control de asistencias y actividades internas</div>
                         </li>
                         <li data-transition="fade">
-                            <img src="public/images/slider/4.jpg" style="background-color: #666361;" alt="" />
-                            <div class="caption lfr" data-x="750" data-y="115" data-speed="900" data-start="100" data-easing="easeOutSine">
-                                <img src="public/index/style/images/art/slider-coffee-cup.png" alt="" />
-                            </div>
-                            <div class="caption sfl bold" data-x="35" data-y="200" data-speed="900" data-start="1000" data-easing="easeOutExpo">Just sit and relax</div>
-                            <div class="caption sfl lite" data-x="35" data-y="265" data-speed="900" data-start="1500" data-easing="easeOutExpo">while we take care of your business</div>
-                            <div class="caption sfl" data-x="35" data-y="340" data-speed="900" data-start="2000" data-easing="easeOutExpo"><a href="#" class="btn btn-green btn-large">See Pricing</a></div>
+                            <img src="public/images/slider/image4.jpg" alt="" />
+                            <div class="caption sfl bold stroke" data-x="center" data-y="200" data-speed="500" data-start="100" data-easing="easeOutExpo">Proyectos de Investigación</div>
+                            <div class="caption sfr lite" data-x="center" data-y="274" data-speed="500" data-start="900" data-easing="easeOutExpo" style="background-color: rgba(0,0,0,0.8); border-radius: 10px; padding: 10px">Control de asistencias y actividades internas</div>
                         </li>
+                        <li data-transition="fade">
+                            <img src="public/images/slider/image5.jpg" alt="" />
+                            <div class="caption sfl bold stroke" data-x="center" data-y="200" data-speed="500" data-start="100" data-easing="easeOutExpo">Participa</div>
+                            <div class="caption sfr lite" data-x="center" data-y="274" data-speed="500" data-start="900" data-easing="easeOutExpo" style="background-color: rgba(0,0,0,0.8); border-radius: 10px; padding: 10px">Control de asistencias y actividades internas</div>
+                        </li>
+                        <li data-transition="fade">
+                            <img src="public/images/slider/image6.jpg" alt="" />
+                            <div class="caption sfl bold stroke" data-x="center" data-y="200" data-speed="500" data-start="100" data-easing="easeOutExpo">Gestión de eventos de los Semilleros de Investigación</div>
+                            <div class="caption sfr lite" data-x="center" data-y="274" data-speed="500" data-start="900" data-easing="easeOutExpo" style="background-color: rgba(0,0,0,0.8); border-radius: 10px; padding: 10px">Control de asistencias y actividades internas</div>
+                        </li>
+
                     </ul>
                     <div class="tp-bannertimer tp-bottom"></div>
                 </div>
             </div>
 
             <div class="container inner">
+
+                <br />
+                <div class="row services">
+                    <div class="flats row text-center">
+                        <div class="span12">
+                            <h1>Bienvenido a la Herramienta Tecnológica</h1>
+                            <p class="lead">para la Visualización Web y Gestión de Eventos de los Semilleros de Investigación de la Universidad de la Amazonia</p>
+                            <%--<img src="public/images/fondo/UA.png" class="responsive" alt="" />--%>
+
+                            <%--<div class="span5 offset1 text-center">
+                                <div class="box box-primary">
+                                    <div class="box-body box-profile">
+                                        <h3>GIECOM</h3>
+                                        <h5>Gestión del Conocimiento, Electrónica, Informática y Comunicaciones</h5>
+                                        <p class="text-muted text-center">2017</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span5 offset0 text-center">
+                                <div class="box box-primary">
+                                    <div class="box-body box-profile">
+                                        <img src="public/images/fondo/giecom.png" class="responsive" alt="" />
+                                    </div>
+                                </div>
+                            </div>--%>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="divide10"></div>
                 <div class="row services">
                     <div class="span3">
                         <div class="icon-wrapper purple">
                             <div class="icon">
-                                <img src="public/index/style/images/icon/icon-lamp.png" alt="" />
+                                <img src="public/index/style/images/icon/icon-calendar.png" alt="" />
                             </div>
+                            <!-- /.icon -->
                         </div>
-                        <h4>Creative Ideas</h4>
-                        <p>Nulla vitae  libero, a pharetra augue. Integer posuere a ante venenatis  nulla. Nullam quis risus eget urna mollis ornare.</p>
+                        <!-- /.icon-wrapper -->
+                        <h1>Eventos</h1>
+                        <p>Gestione las actividades internas en los Eventos realizados por los Semilleros de Investigación</p>
                     </div>
+                    <!-- /.span3 -->
                     <div class="span3">
                         <div class="icon-wrapper red">
                             <div class="icon">
-                                <img src="public/index/style/images/icon/icon-clock.png" alt="" />
+                                <img src="public/index/style/images/icon/icon-controller.png" alt="" />
                             </div>
+                            <!-- /.icon -->
                         </div>
-                        <h4>Rapid Solutions</h4>
-                        <p>Vestibulum id ligula porta  euismod semper. Aenean lacinia bibendum nulla sed. Maecenas sed diam eget risus.</p>
+                        <!-- /.icon-wrapper -->
+                        <h1>Competencias</h1>
+                        <p>Controle los participantes y la logística en las Competencias realizadas por los Semilleros</p>
                     </div>
+                    <!-- /.span3 -->
                     <div class="span3">
-                        <div class="icon-wrapper blue">
+                        <div class="icon-wrapper green">
                             <div class="icon">
-                                <img src="public/index/style/images/icon/icon-tube2.png" alt="" />
+                                <img src="public/index/style/images/icon/icon-file.png" alt="" />
                             </div>
+                            <!-- /.icon -->
                         </div>
-                        <h4>Magic Touch</h4>
-                        <p>Fusce dapibus commodo, tortor mauris condimentum nibh, ut fermentum massa justo. Sed posuere consectetur est.</p>
+                        <!-- /.icon-wrapper -->
+                        <h1>Cursos</h1>
+                        <p>Gestione las inscripciones y contenidos para los Cursos orientados desde los Semilleros</p>
                     </div>
                     <!-- /.span3 -->
                     <div class="span3">
                         <div class="icon-wrapper yellow">
                             <div class="icon">
-                                <img src="public/index/style/images/icon/icon-ticket.png" alt="" />
+                                <img src="public/index/style/images/icon/icon-tv.png" alt="" />
                             </div>
+                            <!-- /.icon -->
                         </div>
-                        <h4>Award Winning</h4>
-                        <p>Aenean eu leo quam. Pellente ornare sem lacinia quam venenatis vestibulum sagittis. Nullam quis risus eget urna.</p>
+                        <!-- /.icon-wrapper -->
+                        <h1>Noticias</h1>
+                        <p>Conozca y participe en los trabajos de INVESTIGACIÓN desarrollados por los Semilleros</p>
                     </div>
+                    <!-- /.span3 -->
                 </div>
-                <hr />
-                <%--<div class="row services" ng-init="getRoles()">
-                    <div class="span3" ng-repeat="l in listRoles">
-                        <div class="icon-wrapper purple">
-                            <div class="icon">
-                                <img src="public/index/style/images/icon/icon-lamp.png" alt="" />
-                            </div>
-                        </div>
-                        <h4>{{l.NombreRol}}</h4>
-                    </div>
-                </div>--%>
-                <div class="row services">
 
+                <hr />
+                <div class="row services">
                     <div class="flats row text-center">
-                        <div class="span4"></div>
-                        <div class="span1">
-                            <div class="icon-wrapper red">
-                                <div class="icon">
-                                    <img src="public/index/style/images/icon/icon-monitor.png" alt="" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="span1">
-                            <div class="icon-wrapper blue">
-                                <div class="icon">
-                                    <img src="public/index/style/images/icon/icon-tube2.png" alt="" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="span1">
-                            <div class="icon-wrapper yellow">
-                                <div class="icon">
-                                    <img src="public/index/style/images/icon/icon-leaf.png" alt="" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="span1">
-                            <div class="icon-wrapper green">
-                                <div class="icon">
-                                    <img src="public/index/style/images/icon/icon-portfolio3.png" alt="" />
-                                </div>
-                            </div>
+                        <div class="span12">
+                            <h1>Semilleros de Investigación</h1>
+                            <p class="lead">Conozca cada uno de los Semilleros de la Universidad de la Amazonia</p>
+                            <br />
                         </div>
                         <div class="span12">
-                            <h1>Semilleros de Investigación Universidad de la Amazonia</h1>
-                            <%--<p class="lead">Semilleros registrados en nuestra Plataforma.</p>--%>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="container inner" ng-init="getSemilleros()">
-
-                    <div class="fix-portfolio">
-
-                        <ul class="items thumbs">
-                            <% for (int i = 0; i < semilleros.Rows.Count; i++)
-                                {
-                                    row = semilleros.Rows[i];
-                            %>
-                            <li class="item overlay thumb graphic text-center"><a href="Semilleros.aspx?id=<%= row["smlr_idSemillero"].ToString() %>">
-                                <img src="<%= row["smlr_RutaLogo"].ToString() %>" alt="" />
-                                <div>
-                                    <h5><%= row["smlr_Nombre"].ToString() %><span><%= row["smlr_Descripcion"].ToString() %></span></h5>
-                                </div>
-                            </a></li>
-                            <%} %>
-                            <%--<li class="item overlay thumb graphic" ng-repeat="l in listSemilleros">
-                                <a href="Semilleros.aspx?id={{l.idSemillero}}">
-                                    <img src="public/index/style/images/art/p1.jpg" alt="" />
-                                    <div>
-                                        <h5>{{l.Nombre}}<span>{{l.Descripcion}}</span></h5>
-                                    </div>
-                                </a>
-                            </li>--%>
-                        </ul>
-                    </div>
-                </div>
-
-                <hr />
-                <h4 class="section-title">NUESTRAS ACTIVIDADES</h4>
-                <div class="showbiz-container posts">
-                    <div class="showbiz-navigation">
-                        <a id="showbiz_left" class="sb-navigation-left btn"></a><a id="showbiz_right" class="sb-navigation-right btn rm0"></a>
-                        <div class="sbclear"></div>
-                    </div>
-
-                    <div class="showbiz portfolio" data-left="#showbiz_left" data-right="#showbiz_right">
-                        <div class="overflowholder">
-                            <ul>
-                                <li class="post">
-                                    <div class="mediaholder">
-                                        <div class="mediaholder_innerwrap overlay cap-icon enlarge">
-                                            <a href="public/index/style/images/art/p1.jpg" class="view" data-rel="lightbox" title="Wood Logo">
-                                                <img src="public/index/style/images/art/p1.jpg" alt="" />
-                                                <div></div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="detailholder">
-                                        <h4 class="post-title"><a href="portfolio-post.html">Wood Logo</a></h4>
-                                        <div class="meta"><a href="#">Logo</a> <a href="#">Texture</a></div>
-                                        <p>Morbi leo risus, porta ac consectetur ac. Porta sagittis lacus vel. Fusce dapibus, tellus ac lacinia quam venenatis.</p>
-                                    </div>
-                                </li>
-                                <!-- /.post -->
-                                <li class="post">
-                                    <div class="mediaholder">
-                                        <div class="mediaholder_innerwrap overlay cap-icon enlarge">
-                                            <a href="public/index/style/images/art/p2.jpg" class="view" data-rel="lightbox" title="Stationary Branding">
-                                                <img src="public/index/style/images/art/p2.jpg" alt="" />
-                                                <div></div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="detailholder">
-                                        <h4 class="post-title"><a href="portfolio-post2.html">Stationary Branding</a></h4>
-                                        <div class="meta"><a href="#">Branding</a> <a href="#">Identity</a></div>
-                                        <p>Nulla vitae elit libero, a pharetra augue. Donec sed rutrum faucibus dolor auctor laoreet metus auctor fringilla.</p>
-                                    </div>
-                                </li>
-                                <!-- /.post -->
-                                <li class="post">
-                                    <div class="mediaholder">
-                                        <div class="mediaholder_innerwrap overlay cap-icon enlarge">
-                                            <a href="public/index/style/images/art/p3.jpg" class="view" data-rel="lightbox" title="Flyer Presentation">
-                                                <img src="public/index/style/images/art/p3.jpg" alt="" />
-                                                <div></div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="detailholder">
-                                        <h4 class="post-title"><a href="portfolio-post3.html">Flyer Presentation</a></h4>
-                                        <div class="meta"><a href="#">Flyer</a> <a href="#">Poster</a></div>
-                                        <p>Curabitur blandit tempus porttitor. Donec id elit non. Vivamus sagittis lacus vel augue lacinia odio sem nec elit.</p>
-                                    </div>
-                                </li>
-                                <!-- /.post -->
-                                <li class="post">
-                                    <div class="mediaholder">
-                                        <div class="mediaholder_innerwrap overlay cap-icon enlarge">
-                                            <a href="public/index/style/images/art/p4.jpg" class="view" data-rel="lightbox" title="Alpha iPhone App">
-                                                <img src="public/index/style/images/art/p4.jpg" alt="" />
-                                                <div></div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="detailholder">
-                                        <h4 class="post-title"><a href="portfolio-post4.html">Alpha iPhone App</a></h4>
-                                        <div class="meta"><a href="#">UI</a> <a href="#">Mobile</a></div>
-                                        <p>Nulla vitae elit libero, nisi est pharetra augue. Maecenas diam eget risus varius blandit purus sit amet fermentum.</p>
-                                    </div>
-                                </li>
-                                <!-- /.post -->
-                                <li class="post">
-                                    <div class="mediaholder">
-                                        <div class="mediaholder_innerwrap overlay cap-icon enlarge">
-                                            <a href="public/index/style/images/art/p5.jpg" class="view" data-rel="lightbox" title="MU Business Card">
-                                                <img src="public/index/style/images/art/p5.jpg" alt="" />
-                                                <div></div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="detailholder">
-                                        <h4 class="post-title"><a href="portfolio-post5.html">MU Business Card</a></h4>
-                                        <div class="meta"><a href="#">Business Card</a> <a href="#">Identity</a></div>
-                                        <p>Praesent commodo cursus, scelerisque nisl consectetur. Morbi risus, porta consectetur malesuada magna mollis.</p>
-                                    </div>
-                                </li>
-                                <!-- /.post -->
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                        <!-- /.overflowholder -->
-
-                        <div class="clearfix"></div>
-                    </div>
-                    <!-- /.showbiz -->
-                </div>
-                <!-- /.showbiz-container -->
-
-            </div>
-
-            <div class="container">
-                <hr />
-                <h3 class="section-title">NUESTRO EQUIPO DE TRABAJO</h3>
-                <div class="row">
-                    <div class="span4">
-                        <figure class="media-wrapper">
-                            <img src="public/index/style/images/art/team1.jpg" alt="" />
-                        </figure>
-                        <div class="details">
-                            <h4>Heriberto Vargas Losada<span>Director de GIECOM</span></h4>
-                            <p>
-                                Ingeniero de Sistemas, graduado de la Universidad Distrital Francisco José de Caldas y 
-                                actualmente docente e investigador en la Universidad de la Amazonia.
-                            </p>
-                            <ul class="social">
-                                <li><a href="#"><i class="icon-s-twitter"></i></a></li>
-                                <li><a href="#"><i class="icon-s-facebook"></i></a></li>
-                                <li><a href="#"><i class="icon-s-pinterest"></i></a></li>
-                            </ul>
-                        </div>
-                        <br />
-                    </div>
-                    <div class="span4">
-                        <figure class="media-wrapper">
-                            <img src="public/index/style/images/art/team2.jpg" alt="" />
-                        </figure>
-                        <div class="details">
-                            <h4>Milher Tovar Rubiando<span>Colaborador GIECOM</span></h4>
-                            <p>
-                                Ingeniero Mecatrónico, graduado de la Universidad Nacional de Colombia y 
-                                actualmente docente e investigador en la Universidad de la Amazonia.
-                            </p>
-                            <ul class="social">
-                                <li><a href="#"><i class="icon-s-twitter"></i></a></li>
-                                <li><a href="#"><i class="icon-s-facebook"></i></a></li>
-                                <li><a href="#"><i class="icon-s-linkedin"></i></a></li>
-                            </ul>
-                        </div>
-                        <br />
-                    </div>
-                    <div class="span4">
-                        <figure class="media-wrapper">
-                            <img src="public/index/style/images/art/team3.jpg" alt="" />
-                        </figure>
-                        <div class="details">
-                            <h4>Diana Espinosa Sarmiento<span>Colaboradora GIECOM</span></h4>
-                            <p>
-                                Ingeniera de Sistemas, graduada de la Universidad Industrial de Santander y 
-                                actualmente docente e investigadora en la Universidad de la Amazonia.
-                            </p>
-                            <ul class="social">
-                                <li><a href="#"><i class="icon-s-twitter"></i></a></li>
-                                <li><a href="#"><i class="icon-s-facebook"></i></a></li>
-                                <li><a href="#"><i class="icon-s-dribbble"></i></a></li>
-                            </ul>
-                        </div>
-                        <br />
-                    </div>
-                    <div class="span4">
-                        <figure class="media-wrapper">
-                            <img src="public/index/style/images/art/team3.jpg" alt="" />
-                        </figure>
-                        <div class="details">
-                            <h4>Yilver Molina Hurtatiz<span>Participante GIECOM</span></h4>
-                            <p>Estudiante Ingeniería de Sistemas e investigador en la Universidad de la Amazonia.</p>
-                            <ul class="social">
-                                <li><a href="#"><i class="icon-s-twitter"></i></a></li>
-                                <li><a href="#"><i class="icon-s-facebook"></i></a></li>
-                                <li><a href="#"><i class="icon-s-dribbble"></i></a></li>
-                            </ul>
-                        </div>
-                        <br />
-                    </div>
-                    <div class="span4">
-                        <figure class="media-wrapper">
-                            <img src="public/index/style/images/art/team3.jpg" alt="" />
-                        </figure>
-                        <div class="details">
-                            <h4>Julián Mora Ramos<span>Participante GIECOM</span></h4>
-                            <p>Estudiante Ingeniería de Sistemas e investigador en la Universidad de la Amazonia.</p>
-                            <ul class="social">
-                                <li><a href="#"><i class="icon-s-twitter"></i></a></li>
-                                <li><a href="#"><i class="icon-s-facebook"></i></a></li>
-                                <li><a href="#"><i class="icon-s-dribbble"></i></a></li>
-                            </ul>
-                        </div>
-                        <br />
-                    </div>
-                </div>
-            </div>
-            <div class="dark-wrapper">
-                <div class="container inner">
-                    <div id="testimonials" class="tab-container">
-                        <div class="panel-container">
-                            <div id="tst1">Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna. <span class="author">Nikolas Brooten</span> </div>
-                            <div id="tst2">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas faucibus mollis interdum. Etiam porta sem malesuada magna mollis euismod. <span class="author">Coriss Ambady</span> </div>
-                            <div id="tst3">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur. <span class="author">Barclay Widerski</span> </div>
-                            <div id="tst4">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor gravida at eget metus. <span class="author">Elsie Spear</span> </div>
-                        </div>
-                        <ul class="etabs">
-                            <li class="tab"><a href="#tst1">1</a></li>
-                            <li class="tab"><a href="#tst2">2</a></li>
-                            <li class="tab"><a href="#tst3">3</a></li>
-                            <li class="tab"><a href="#tst4">4</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <footer class="black-wrapper">
-                <div class="container inner">
-                    <div class="row">
-                        <section class="span4 widget">
-                            <h3 class="section-title widget-title">Popular Posts</h3>
-                            <ul class="post-list">
-                                <li>
-                                    <h6><a href="blog-post.html">Vivamus sagittis lacus vel augue metus</a></h6>
-                                    <em>3th Oct 2012</em> </li>
-                                <li>
-                                    <h6><a href="blog-post.html">Scelerisque nisl consectetur et</a></h6>
-                                    <em>28th Sep 2012</em> </li>
-                                <li>
-                                    <h6><a href="blog-post.html">Pellentesque ornare sem lacinia quam</a></h6>
-                                    <em>15th Aug 2012</em> </li>
-                            </ul>
-                            <%--<div class="container inner" ng-init="getSemilleros()">
-
-                                <div class="fix-portfolio">
-
-                                    <ul class="items thumbs">
-
-                                        <li class="item overlay thumb graphic text-center"><a href="#">
-                                            <img src="public/images/fondo/giecom.png" alt="" />
-                                            <div>
-                                                <h5>GIECOM<span>Grupo de Investigación - Ingeniería de Sistemas</span></h5>
-                                            </div>
-                                        </a></li>
-
-                                    </ul>
-                                </div>
+                            <%--<div class="span5 offset1">
+                                <h3>Facultad</h3>
+                                <asp:DropDownList ID="t_facultad" OnSelectedIndexChanged="t_facultad_SelectedIndexChanged" Style="background-color: white; color: black" AutoPostBack="true" runat="server" CssClass="btn btn-block">
+                                    <asp:ListItem Text="INGENIERÍA"></asp:ListItem>
+                                    <asp:ListItem Text="CIENCIAS CONTABLES, ECONÓMICAS Y ADMINISTRATIVAS"></asp:ListItem>
+                                </asp:DropDownList>
                             </div>--%>
-                            <!-- /.post-list -->
-                        </section>
-                        <section class="span6 widget">
-                            <h3 class="section-title widget-title">QUIENES SOMOS</h3>
-                            <p>
-                                <b>GIECOM</b> - Gestión del Conocimiento-Electrónica-Informática y Comunicaciones.
-                            </p>
-                            <div class="divide10"></div>
-                            <i class="icon-location contact"></i>Universidad de la Amazonia, Sede Porvenir, Florencia Caquetá.
-                            <br />
-                            <i class="icon-phone contact"></i>+57 310 862 1408
-                            <br />
-                            <i class="icon-mail contact"></i><a href="first.last%40email.html">giecom@uniamazonia.edu.co</a>
-                        </section>
-                        <!-- /.widget -->
+                            <div class="span6 offset3 text-center" ng-init="getProgramas()">
+                                <h3>Programa académico</h3>
+                                <%--<asp:DropDownList ID="t_programa" ng-model="Mpio" ng-change="getProgramaSemillero(Mpio)" runat="server" Style="background-color: white; color: black" CssClass="btn btn-block">
+                                    <asp:ListItem ng-repeat="l in listProgramas" Value="{{l.PROG_IDPROGRAMA}}" Text="{{l.PROG_NOMBRE}}"></asp:ListItem>
+                                </asp:DropDownList>--%>
+                                <select name="mpioficina" ng-model="Mpio" ng-change="getProgramaSemillero(Mpio)" style="background-color: white; color: black" class="btn btn-block" required="">
+                                    <option ng-repeat="l in listProgramas" ng-value="{{l.PROG_IDPROGRAMA}}">{{l.PROG_NOMBRE}}</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                    <!-- /.row -->
 
-                    <hr />
-                    <p class="pull-left">© 2016 Giecom. Todos los derechos reservados. <a target="_blank" href="http://udla.edu.co/">Universidad de la Amazonia</a>.</p>
-                    <ul class="social pull-right">
-                        <li><a target="_blank" href="https://twitter.com/giecom_udla"><i class="icon-s-twitter"></i></a></li>
-                        <li><a target="_blank" href="https://www.facebook.com/GiecomFC/?fref=ts"><i class="icon-s-facebook"></i></a></li>
-                        <li><a target="_blank" href="#"><i class="icon-s-youtube"></i></a></li>
+                </div>
+                <br />
+                <br />
+                <div class="row">
+                    <div class="span12 offset0">
+                        <div class="accordion" id="accordion" style="background-color: white">
+                            <div class="accordion-group">
+                                <div class="accordion-heading"><a class="accordion-toggle active" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">SEMILLEROS REGISTRADOS</a></div>
+                                <div id="collapseOne" class="accordion-body collapse in">
+                                    <div class="accordion-inner">
+                                        <div class="responsive text-center" style="padding: 20px 40px">
+                                            <p>{{Result}}</p>
+                                            <table class="table table-hover" ng-if="Result == ''">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>NOMBRE</th>
+                                                        <th>DESCRIPCIÓN</th>
+                                                        <th>VER</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="l in listSemillerosP">
+                                                        <td>{{l.SMLR_IDSEMILLERO}}</td>
+                                                        <td>{{l.SMLR_NOMBRE}}</td>
+                                                        <td>{{l.SMLR_DESCRIPCION}}</td>
+                                                        <td>
+                                                            <span class="label label-warning">
+                                                                <a style="color: white; padding: 30px 10px" href="Semilleros.aspx?id={{l.SMLR_IDSEMILLERO}}" target="_blank">Ver semillero</a>
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <%--<% for (int i = 0; i < semilleros.Rows.Count; i++)
+                                                        {
+                                                            row = semilleros.Rows[i];
+                                                    %>
+                                                    <tr>
+                                                        <td>
+                                                            <%= (i+1) %>
+                                                        </td>
+                                                        <td>
+                                                            <%= row["smlr_Nombre"].ToString() %>
+                                                        </td>
+                                                        <td>
+                                                            <%= row["smlr_Descripcion"].ToString() %>
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-warning">
+                                                                <a style="color: white; padding: 30px 10px" href="Semilleros.aspx?id=<%= row["smlr_idSemillero"].ToString() %>" target="_blank">Ver semillero</a>
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+
+                                                    <%  } %>--%>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <%--<div class="row">
+                    <% for (int i = 0; i < semilleros.Rows.Count; i++)
+                        {
+                            row = semilleros.Rows[i];
+                    %>
+
+                    <div class="span4">
+                        <div class="alert alert-success text-center">
+                            <h3 class="section-title"><%= row["smlr_Nombre"].ToString() %></h3>
+                            <p><%= row["smlr_Descripcion"].ToString() %></p>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <div class="alert alert-success text-center">
+                            <h3 class="section-title"><%= row["smlr_Nombre"].ToString() %></h3>
+                            <p><%= row["smlr_Descripcion"].ToString() %></p>
+                        </div>
+                    </div>
+                    <%  } %>
+                </div>--%>
+
+                <%-- <div class="container inner" ng-init="getSemilleros()">
+
+                <div class="fix-portfolio">
+
+                    <ul class="items thumbs">
+                        <% for (int i = 0; i < semilleros.Rows.Count; i++)
+                            {
+                                row = semilleros.Rows[i];
+                        %>
+                        <li class="item overlay thumb graphic text-center"><a href="Semilleros.aspx?id=<%= row["smlr_idSemillero"].ToString() %>">
+                            <img src="<%= row["smlr_RutaLogo"].ToString() %>" alt="" />
+                            <div>
+                                <h5><%= row["smlr_Nombre"].ToString() %><span><%= row["smlr_Descripcion"].ToString() %></span></h5>
+                            </div>
+                        </a></li>
+                        <%} %>
                     </ul>
                 </div>
-                <!-- .container -->
-            </footer>
-            <!-- /footer -->
+            </div>--%>
+
+            </div>
+        </div>
+
+
+
+        <div class="offset"></div>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.22393997928!2d-75.60620658570387!3d1.6198376988187821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e244e2307a3b2af%3A0x2eb9e14897cad6c7!2sUniversidad+de+la+Amazonia!5e0!3m2!1ses!2ses!4v1485917545746" width="100%" height="450" frameborder="0" style="border: 0" allowfullscreen></iframe>
+        </div>
+
+
+        <footer class="black-wrapper">
+            <div class="container inner">
+                <div class="row">
+                    <section class="span3 offset2 widget">
+                        <br />
+                        <img src="public/images/fondo/giecom.png" class="responsive" alt="" />
+                    </section>
+                    <section class="span6 widget">
+
+                        <br />
+                        <h3 class="section-title widget-title">¿QUIENES SOMOS?</h3>
+                        <p>
+                            <b>GIECOM</b> - Gestión del Conocimiento-Electrónica-Informática y Comunicaciones.
+                        </p>
+                        <div class="divide10"></div>
+                        <i class="icon-location contact"></i>Universidad de la Amazonia, Sede Porvenir, Florencia Caquetá.
+                            <br />
+                        <i class="icon-phone contact"></i>+57 310 862 1408
+                            <br />
+                        <i class="icon-mail contact"></i><a href="#">giecom@uniamazonia.edu.co</a>
+                    </section>
+                    <!-- /.widget -->
+                </div>
+                <!-- /.row -->
+
+                <hr />
+                <p class="pull-left">© 2017 <a href="http://giecom.udla.edu.co/" target="_blank">Giecom</a>. Todos los derechos reservados. <a target="_blank" href="http://www.udla.edu.co/v10/">Universidad de la Amazonia</a>.</p>
+                <ul class="social pull-right">
+                    <li><a target="_blank" href="https://twitter.com/giecom_udla"><i class="icon-s-twitter"></i></a></li>
+                    <li><a target="_blank" href="https://www.facebook.com/GiecomFC/?fref=ts"><i class="icon-s-facebook"></i></a></li>
+                    <li><a target="_blank" href="#"><i class="icon-s-youtube"></i></a></li>
+                </ul>
+            </div>
+            <!-- .container -->
+        </footer>
+        <!-- /footer -->
         </div>
         <!--/.body-wrapper-->
         <script src="public/index/style/js/jquery.js"></script>

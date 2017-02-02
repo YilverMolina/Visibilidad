@@ -61,5 +61,6 @@ namespace SemillerosUA.Models.Clases
             list[0] = new Transaction("PR_UPDATE_USUARIO", getParameters(obj));
             return conexion.realizarTransaccion(list);
         }
+
     }
 }

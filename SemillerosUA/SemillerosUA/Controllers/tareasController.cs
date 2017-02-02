@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class tareasController : ApiController
     {
         tareas obj_tareas = new tareas();
+        public DataRow[] alltareas()
+        {
+            DataTable dt = obj_tareas.get_tareas();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public tareas[] data()
         {
             DataTable dt = obj_tareas.get_tareas();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return tareass;
         }
-        public IHttpActionResult get_tareas()
+        public IEnumerable<tareas> get_tareas()
         {
-            return Json(obj_tareas.get_tareas());
+            return data();
         }
         public IHttpActionResult get_tareas(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_tareas(tareas obj)
+        [HttpPost]
+        public string insert_tareas(tareas obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_tareas.insert_tareas(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_tareas.insert_tareas(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_tareas(tareas obj)
+        [HttpPost]
+        public string update_tareas(tareas obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_tareas.update_tareas(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_tareas.update_tareas(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }

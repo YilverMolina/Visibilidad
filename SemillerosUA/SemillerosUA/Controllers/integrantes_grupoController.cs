@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Http;
-namespace CongresoTIC.Controllers
+namespace SemillerosUA.Controllers
 {
     public class integrantes_grupoController : ApiController
     {
         integrantes_grupo obj_integrantes_grupo = new integrantes_grupo();
+        public DataRow[] allintegrantes_grupo()
+        {
+            DataTable dt = obj_integrantes_grupo.get_integrantes_grupo();
+            DataRow[] rows = null;
+            if (dt.Rows.Count > 0)
+            {
+                rows = new DataRow[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rows[i] = dt.Rows[i];
+                }
+            }
+            return rows;
+        }
         public integrantes_grupo[] data()
         {
             DataTable dt = obj_integrantes_grupo.get_integrantes_grupo();
@@ -25,9 +39,9 @@ namespace CongresoTIC.Controllers
             }
             return integrantes_grupos;
         }
-        public IHttpActionResult get_integrantes_grupo()
+        public IEnumerable<integrantes_grupo> get_integrantes_grupo()
         {
-            return Json(obj_integrantes_grupo.get_integrantes_grupo());
+            return data();
         }
         public IHttpActionResult get_integrantes_grupo(int id)
         {
@@ -41,54 +55,28 @@ namespace CongresoTIC.Controllers
                 return NotFound();
             }
         }
-        public IHttpActionResult insert_integrantes_grupo(integrantes_grupo obj)
+        [HttpPost]
+        public string insert_integrantes_grupo(integrantes_grupo obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_integrantes_grupo.insert_integrantes_grupo(obj))
             {
-                return BadRequest(ModelState);
+                return "I200";
             }
             else
             {
-                if (obj_integrantes_grupo.insert_integrantes_grupo(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "I500";
             }
         }
-        public IHttpActionResult update_integrantes_grupo(integrantes_grupo obj)
+        [HttpPost]
+        public string update_integrantes_grupo(integrantes_grupo obj)
         {
-            if (!ModelState.IsValid)
+            if (obj_integrantes_grupo.update_integrantes_grupo(obj))
             {
-                return BadRequest(ModelState);
+                return "U200";
             }
             else
             {
-                if (obj_integrantes_grupo.update_integrantes_grupo(obj))
-                {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                return "U500";
             }
         }
     }
